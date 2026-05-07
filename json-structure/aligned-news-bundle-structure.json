@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/json-structure/aligned-news-bundle-structure.json",
+  "name": "Bundle",
+  "description": "An Aligned News bundle, grouping related stories around a theme.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "stories": { "type": "array", "items": { "$ref": "aligned-news-story-structure.json" } },
+    "publishedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["id", "title"]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/json-schema/aligned-news-signal-schema.json",
+  "title": "Signal",
+  "description": "An Aligned News signal (early pattern detection).",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "title": { "type": "string" },
+    "badge": {
+      "type": "string",
+      "enum": ["bullish", "caution", "critical", "signal", "interview", "vc", "action"]
+    },
+    "summary": { "type": "string" },
+    "analysis": { "type": "string", "description": "Full editorial analysis. Returned by single-signal responses." },
+    "relatedStories": {
+      "type": "array",
+      "items": { "$ref": "aligned-news-story-schema.json" }
+    },
+    "sourceUrl": { "type": "string", "format": "uri" },
+    "publishedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["id", "title", "badge"]
+}

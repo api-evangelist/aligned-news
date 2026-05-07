@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "section": { "slug": "breaking", "name": "Breaking", "description": "Top breaking AI news." },
+      "stories": [
+        {
+          "id": "a78447cb-97ae-41ee-8f56-1dc82f657085",
+          "title": "Frontier Lab Releases Open-Weights Model With Multimodal Reasoning",
+          "section": "models",
+          "summary": "A frontier AI lab released a new open-weights multimodal model.",
+          "url": "https://alignednews.com/stories/a78447cb-97ae-41ee-8f56-1dc82f657085",
+          "publishedAt": "2026-05-06T14:22:00Z"
+        }
+      ]
+    },
+    {
+      "section": { "slug": "robotics", "name": "Robotics", "description": "Humanoid and embodied AI coverage." },
+      "stories": [
+        {
+          "id": "191cfc09-6bcb-4e9c-b064-6b5c3a6114c4",
+          "title": "Robotics Startup Raises Series B For Humanoid Manipulation Stack",
+          "section": "robotics",
+          "summary": "A humanoid robotics startup closed a Series B.",
+          "url": "https://alignednews.com/stories/191cfc09-6bcb-4e9c-b064-6b5c3a6114c4",
+          "publishedAt": "2026-05-06T11:05:00Z"
+        }
+      ]
+    }
+  ]
+}

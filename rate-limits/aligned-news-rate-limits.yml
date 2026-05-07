@@ -1,0 +1,62 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Aligned News
+providerId: aligned-news
+created: '2026-05-06'
+modified: '2026-05-06'
+reconciled: false
+tags:
+  - Rate Limiting
+  - AI
+  - News
+description: >-
+  Aligned News does not publish per-key rate limits on its developer page
+  (https://alignednews.com/developers). API responses include CORS preflight
+  headers but no public RateLimit-* response headers were observed. The
+  documented gating is entirely subscription-tier based: Free has no API
+  access, Pro and Enterprise tiers issue Bearer alnw_ API keys with usage
+  governed by tier rather than published per-minute counters. Confirm any
+  per-tier limits with Aligned News directly.
+sources:
+  - https://alignednews.com/developers
+  - https://alignednews.com/pricing
+  - https://alignednews.com/account
+headers:
+  retryAfter: Retry-After
+responseCodes:
+  unauthorized: 401
+  throttled: 429
+  notFound: 404
+notes:
+  - No RateLimit-Limit or RateLimit-Remaining response headers were observed
+    on /v1/* endpoints during research probes.
+  - API access is gated by subscription tier; Free tier returns 401 with
+    "Invalid or missing API key" for all /v1/* paths.
+  - Quota is not publicly disclosed - reconciled is false.
+limits:
+  - name: Pro tier API access
+    scope: key
+    metric: api_access
+    limit: contact-provider
+    timeFrame: subscription
+  - name: Enterprise tier API access
+    scope: account
+    metric: api_access
+    limit: contact-provider
+    timeFrame: subscription
+  - name: Maximum stories per request
+    scope: request
+    metric: items
+    limit: 100
+    timeFrame: request
+  - name: Maximum signals per request
+    scope: request
+    metric: items
+    limit: 200
+    timeFrame: request
+  - name: Search query minimum length
+    scope: request
+    metric: query_length
+    limit: 2
+    timeFrame: request

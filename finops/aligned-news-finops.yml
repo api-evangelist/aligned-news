@@ -1,0 +1,71 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Aligned News
+providerId: aligned-news
+created: '2026-05-06'
+modified: '2026-05-06'
+reconciled: false
+tags:
+  - FinOps
+  - FOCUS
+  - AI News
+description: >-
+  Aligned News bills via flat-rate Pro and contact-sales Enterprise
+  subscriptions managed through Clerk Billing on top of Stripe. There is no
+  metered usage-based billing surface today (Free has no API access; Pro
+  unlocks the entire content corpus and the API for a single recurring fee;
+  Enterprise is contact sales). FOCUS-style cost tracking is best modelled at
+  the seat/subscription level rather than per-token or per-call. Reconciled
+  is false because the public site does not expose price values for the Pro
+  or Enterprise tiers.
+sources:
+  - https://alignednews.com/pricing
+  - https://alignednews.com/developers
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Aligned News
+serviceCategory: AI News Intelligence
+billingModel:
+  pricingCategory: Subscription (flat-rate)
+  billingFrequency: Monthly or Annual (Pro); Contract (Enterprise)
+  billingCurrency: USD
+focusColumns:
+  ServiceName: Aligned News
+  ServiceCategory: AI News Intelligence
+  ProviderName: Aligned News
+  PublisherName: Aligned News
+  BillingCurrency: USD
+notes:
+  - No usage-metered billing surface is exposed publicly.
+  - Subscriptions are managed via Clerk Billing; payments via Stripe.
+  - Cost-allocation should attribute the seat/subscription to the consuming
+    team rather than per-call.
+meters:
+  - name: pro_subscription
+    unit: seat-month
+    aggregation: sum
+    dimensions:
+      - billing_period
+  - name: enterprise_subscription
+    unit: contract
+    aggregation: sum
+    dimensions:
+      - contract_term
+principles:
+  - name: Visibility
+    description: Track Aligned News spend at the subscription level via Stripe billing
+      exports.
+  - name: Allocation
+    description: Tag the subscription owner team or cost centre; Aligned News does
+      not break out per-key usage.
+  - name: Optimization
+    description: Right-size between Pro and Enterprise based on team size and need
+      for priority support and custom analysis.
+  - name: Accountability
+    description: Annual review of subscription value vs. usage of API and MCP
+      surfaces.

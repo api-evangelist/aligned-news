@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "id": "9f427db7-4872-4b09-a70f-fb51667fb2d2",
+      "title": "State Of AI Compute, Q2 2026",
+      "summary": "A quarterly synthesis of GPU supply, allocation patterns, and downstream effects on model training cycles.",
+      "tags": ["compute", "infrastructure"],
+      "publishedAt": "2026-05-04T17:00:00Z"
+    },
+    {
+      "id": "15ded878-1c3c-4733-9d95-f0b34393aea6",
+      "title": "Open-Weights Momentum, May 2026",
+      "summary": "How open-weights releases reshaped the model landscape over the past 30 days.",
+      "tags": ["open-weights", "models"],
+      "publishedAt": "2026-05-02T17:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "data": {
+    "id": "a78447cb-97ae-41ee-8f56-1dc82f657085",
+    "title": "Frontier Lab Releases Open-Weights Model With Multimodal Reasoning",
+    "slug": "frontier-lab-open-weights-multimodal",
+    "section": "models",
+    "summary": "A frontier AI lab released a new open-weights multimodal model, citing reproducibility and ecosystem alignment goals.",
+    "body": "The release marks a notable shift in the lab's posture toward open weights, with full multimodal reasoning capabilities and a permissive license for research and commercial use. Early benchmarks position the model competitively on math, code, and vision tasks. Independent reproducibility kits and evaluation harnesses are being published in parallel. The community response has emphasized the importance of transparent training-data documentation and strong safety evaluations.",
+    "url": "https://alignednews.com/stories/a78447cb-97ae-41ee-8f56-1dc82f657085",
+    "tags": ["models", "open-weights", "multimodal"],
+    "publishedAt": "2026-05-06T14:22:00Z"
+  }
+}

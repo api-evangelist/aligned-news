@@ -1,0 +1,20 @@
+{
+  "data": {
+    "id": "25b1b71a-18a5-4fa7-94a1-d530b02cba61",
+    "title": "Notable Researcher Joins Compute-Heavy Foundation Lab",
+    "badge": "signal",
+    "summary": "A respected researcher with prior frontier-lab experience announced a move to a heavily compute-resourced foundation lab.",
+    "analysis": "The move continues a multi-quarter pattern of senior-IC migration toward compute-rich environments. Combined with the prior week's hiring announcements, this suggests an acceleration in foundation-model program staffing. Expect downstream effects on adjacent labs' retention strategies and on benchmark releases over the next two quarters.",
+    "relatedStories": [
+      {
+        "id": "a78447cb-97ae-41ee-8f56-1dc82f657085",
+        "title": "Frontier Lab Releases Open-Weights Model With Multimodal Reasoning",
+        "section": "models",
+        "url": "https://alignednews.com/stories/a78447cb-97ae-41ee-8f56-1dc82f657085",
+        "publishedAt": "2026-05-06T14:22:00Z"
+      }
+    ],
+    "sourceUrl": "https://alignednews.com/signals/25b1b71a-18a5-4fa7-94a1-d530b02cba61",
+    "publishedAt": "2026-05-06T13:40:00Z"
+  }
+}

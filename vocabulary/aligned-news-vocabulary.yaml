@@ -1,0 +1,203 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Aligned News
+  description: >-
+    Taxonomy of Aligned News services mapping operational (OpenAPI) and
+    capability (Naftiko) dimensions across the read-only AI news intelligence
+    REST API at https://alignednews.com/v1, plus the downloadable MCP server
+    distributed at https://alignednews.com/mcp-server.ts.
+  created: "2026-05-06"
+  modified: "2026-05-06"
+
+operational:
+  apis:
+    - name: Aligned News REST API
+      namespace: aligned-news
+      version: "1.0"
+      baseUrl: https://alignednews.com/v1
+      status: active
+    - name: Aligned News MCP Server
+      namespace: aligned-news-mcp
+      version: "1.0.0"
+      baseUrl: https://alignednews.com/mcp-server.ts
+      status: active
+
+  resources:
+    - name: Stories
+      namespace: aligned-news
+      path: /v1/stories
+      description: AI news stories curated and synthesized from monitored accounts
+      operations:
+        - listStories
+        - getStory
+      tags:
+        - News
+        - Stories
+    - name: Signals
+      namespace: aligned-news
+      path: /v1/signals
+      description: Early pattern detections with editorial badges
+      operations:
+        - listSignals
+        - getSignal
+      tags:
+        - Intelligence
+        - Signals
+    - name: Reports
+      namespace: aligned-news
+      path: /v1/reports
+      description: Trend deep-dives and longer-form analysis
+      operations:
+        - listReports
+        - getReport
+      tags:
+        - Reports
+        - Analysis
+    - name: Bundles
+      namespace: aligned-news
+      path: /v1/bundles
+      description: Curated groupings of related stories around themes
+      operations:
+        - listBundles
+        - getBundle
+      tags:
+        - Bundles
+        - Curation
+    - name: Sections
+      namespace: aligned-news
+      path: /v1/sections
+      description: Topical sections used to organize stories
+      operations:
+        - listSections
+      tags:
+        - Sections
+        - Taxonomy
+    - name: News Feed
+      namespace: aligned-news
+      path: /v1/news-feed
+      description: All current stories grouped by section
+      operations:
+        - getNewsFeed
+      tags:
+        - News
+        - Feed
+    - name: Search
+      namespace: aligned-news
+      path: /v1/search
+      description: Full-text search across stories, signals, and reports
+      operations:
+        - searchContent
+      tags:
+        - Search
+        - Discovery
+
+capability:
+  workflows:
+    - name: AI News Intelligence
+      file: capabilities/ai-news-intelligence.yaml
+      description: >-
+        Unified AI news intelligence workflow exposing the Aligned News REST
+        surface to AI agents, briefing tools, and research dashboards.
+      apis:
+        - aligned-news
+      toolCount: 11
+      personas:
+        - ai-agent-builder
+        - research-analyst
+        - trader
+        - news-publisher
+
+  personas:
+    - id: ai-agent-builder
+      name: AI Agent Builder
+      description: Engineer building AI agents that need real-time AI news context
+      workflows:
+        - AI News Intelligence
+    - id: research-analyst
+      name: Research Analyst
+      description: Analyst tracking AI industry trends, funding, and product launches
+      workflows:
+        - AI News Intelligence
+    - id: trader
+      name: Trader
+      description: Investor or trader using early signals to inform positions
+      workflows:
+        - AI News Intelligence
+    - id: news-publisher
+      name: News Publisher
+      description: Editorial team syndicating AI news into downstream products
+      workflows:
+        - AI News Intelligence
+
+  domains:
+    - name: News
+      description: Real-time AI news stories and section-level feeds
+      resources:
+        - stories
+        - news-feed
+      workflows:
+        - AI News Intelligence
+    - name: Intelligence
+      description: Early pattern detections and trend analysis
+      resources:
+        - signals
+        - reports
+      workflows:
+        - AI News Intelligence
+    - name: Curation
+      description: Themed bundles and section taxonomy
+      resources:
+        - bundles
+        - sections
+      workflows:
+        - AI News Intelligence
+    - name: Discovery
+      description: Cross-content full-text search
+      resources:
+        - search
+      workflows:
+        - AI News Intelligence
+
+crossReference:
+  description: Maps each operational resource to the capability workflow(s) that consume it
+  mappings:
+    - resource: stories
+      operations:
+        - listStories
+        - getStory
+      workflows:
+        - AI News Intelligence
+    - resource: signals
+      operations:
+        - listSignals
+        - getSignal
+      workflows:
+        - AI News Intelligence
+    - resource: reports
+      operations:
+        - listReports
+        - getReport
+      workflows:
+        - AI News Intelligence
+    - resource: bundles
+      operations:
+        - listBundles
+        - getBundle
+      workflows:
+        - AI News Intelligence
+    - resource: sections
+      operations:
+        - listSections
+      workflows:
+        - AI News Intelligence
+    - resource: news-feed
+      operations:
+        - getNewsFeed
+      workflows:
+        - AI News Intelligence
+    - resource: search
+      operations:
+        - searchContent
+      workflows:
+        - AI News Intelligence

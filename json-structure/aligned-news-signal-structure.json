@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/json-structure/aligned-news-signal-structure.json",
+  "name": "Signal",
+  "description": "An Aligned News signal (early pattern detection).",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "title": { "type": "string" },
+    "badge": {
+      "type": "string",
+      "enum": ["bullish", "caution", "critical", "signal", "interview", "vc", "action"]
+    },
+    "summary": { "type": "string" },
+    "analysis": { "type": "string" },
+    "relatedStories": { "type": "array", "items": { "$ref": "aligned-news-story-structure.json" } },
+    "sourceUrl": { "type": "string", "format": "uri" },
+    "publishedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["id", "title", "badge"]
+}

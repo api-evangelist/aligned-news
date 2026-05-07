@@ -1,0 +1,86 @@
+extends: spectral:oas
+rules:
+  # Aligned News API-specific Spectral rules
+
+  aligned-news-operation-summary-title-case:
+    description: All operation summaries must use Title Case.
+    message: "Operation summary '{{value}}' should use Title Case."
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-z0-9]*([ -][A-Z0-9][a-z0-9]*)*)$"
+
+  aligned-news-operation-id-camel-case:
+    description: Operation IDs must use camelCase.
+    message: "Operation ID '{{value}}' should use camelCase."
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  aligned-news-tag-required:
+    description: All operations must have at least one tag.
+    message: Operations must have at least one tag for categorization.
+    severity: error
+    given: "$.paths[*][get,post,put,delete]"
+    then:
+      field: tags
+      function: truthy
+
+  aligned-news-bearer-auth-only:
+    description: Aligned News uses HTTP bearer auth (alnw_ prefix). No other security
+      schemes should be defined.
+    message: Define only a single bearerAuth security scheme.
+    severity: error
+    given: "$.components.securitySchemes"
+    then:
+      field: bearerAuth
+      function: truthy
+
+  aligned-news-data-envelope:
+    description: Successful 200 responses should wrap payloads in a `data` envelope.
+    message: Successful responses should expose a top-level `data` property.
+    severity: warn
+    given: "$.paths[*][*].responses.200.content.application/json.schema.properties"
+    then:
+      field: data
+      function: truthy
+
+  aligned-news-uuid-path-params:
+    description: Resource path parameters named `id` must be UUID-formatted.
+    message: Path parameter `id` must use format uuid.
+    severity: warn
+    given: "$.paths[*][*].parameters[?(@.name=='id' && @.in=='path')].schema"
+    then:
+      field: format
+      function: pattern
+      functionOptions:
+        match: "^uuid$"
+
+  aligned-news-limit-bounds:
+    description: Numeric `limit` query parameters must declare both minimum and maximum.
+    message: "`limit` parameter must declare minimum and maximum bounds."
+    severity: warn
+    given: "$.paths[*][*].parameters[?(@.name=='limit')].schema"
+    then:
+      - field: minimum
+        function: truthy
+      - field: maximum
+        function: truthy
+
+  aligned-news-error-schema-shape:
+    description: Error response schema must include an `error.code` and `error.message`
+      pair.
+    message: Error responses should match the documented `{ error: { code, message
+      } }` shape.
+    severity: warn
+    given: "$.components.schemas.Error.properties.error.properties"
+    then:
+      - field: code
+        function: truthy
+      - field: message
+        function: truthy

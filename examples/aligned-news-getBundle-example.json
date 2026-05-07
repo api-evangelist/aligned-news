@@ -1,0 +1,18 @@
+{
+  "data": {
+    "id": "503066fb-a4f4-4cc3-95d6-83d9822d60e5",
+    "title": "Open-Weights Wave",
+    "summary": "All recent stories tracking the new open-weights model momentum.",
+    "stories": [
+      {
+        "id": "a78447cb-97ae-41ee-8f56-1dc82f657085",
+        "title": "Frontier Lab Releases Open-Weights Model With Multimodal Reasoning",
+        "section": "models",
+        "summary": "A frontier AI lab released a new open-weights multimodal model, citing reproducibility and ecosystem alignment goals.",
+        "url": "https://alignednews.com/stories/a78447cb-97ae-41ee-8f56-1dc82f657085",
+        "publishedAt": "2026-05-06T14:22:00Z"
+      }
+    ],
+    "publishedAt": "2026-05-06T18:00:00Z"
+  }
+}

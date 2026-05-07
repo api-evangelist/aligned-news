@@ -1,0 +1,9 @@
+{
+  "data": [
+    { "slug": "breaking", "name": "Breaking", "description": "Top breaking AI news." },
+    { "slug": "models", "name": "Models", "description": "New model releases and benchmarks." },
+    { "slug": "robotics", "name": "Robotics", "description": "Humanoid and embodied AI coverage." },
+    { "slug": "policy", "name": "Policy", "description": "Regulation and policy developments." },
+    { "slug": "research", "name": "Research", "description": "Notable research papers and lab output." }
+  ]
+}

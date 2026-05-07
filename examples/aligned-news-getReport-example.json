@@ -1,0 +1,10 @@
+{
+  "data": {
+    "id": "9f427db7-4872-4b09-a70f-fb51667fb2d2",
+    "title": "State Of AI Compute, Q2 2026",
+    "summary": "A quarterly synthesis of GPU supply, allocation patterns, and downstream effects on model training cycles.",
+    "content": "Executive summary: GPU availability tightened modestly through the quarter as several hyperscalers shifted allocations toward internal model programs. Section 1 covers supply and capacity additions across major regions. Section 2 examines allocation behaviour observed via signals over the past 12 weeks. Section 3 connects allocation patterns to publicly known training cycles. Section 4 discusses implications for downstream model release cadence and pricing.",
+    "tags": ["compute", "infrastructure"],
+    "publishedAt": "2026-05-04T17:00:00Z"
+  }
+}

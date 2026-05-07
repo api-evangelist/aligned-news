@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/json-schema/aligned-news-report-schema.json",
+  "title": "Report",
+  "description": "An Aligned News trend report.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "content": { "type": "string", "description": "Full report content. Returned by single-report responses." },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "publishedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["id", "title"]
+}

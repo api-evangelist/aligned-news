@@ -1,0 +1,41 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aln": "https://alignednews.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AlignedNews": "aln:AlignedNews",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "provider": "schema:provider",
+
+    "Story": "schema:NewsArticle",
+    "Signal": "aln:Signal",
+    "Report": "schema:Report",
+    "Bundle": "schema:Collection",
+    "Section": "aln:Section",
+
+    "id": "schema:identifier",
+    "title": "schema:headline",
+    "slug": {"@id": "aln:slug"},
+    "section": {"@id": "aln:section"},
+    "summary": "schema:abstract",
+    "body": "schema:articleBody",
+    "content": "schema:text",
+    "tags": {"@id": "schema:keywords", "@container": "@set"},
+    "publishedAt": {"@id": "schema:datePublished", "@type": "xsd:dateTime"},
+
+    "badge": {"@id": "aln:badge"},
+    "analysis": {"@id": "aln:analysis"},
+    "relatedStories": {"@id": "aln:relatedStories", "@container": "@set"},
+    "sourceUrl": {"@id": "aln:sourceUrl", "@type": "xsd:anyURI"},
+
+    "stories": {"@id": "aln:stories", "@container": "@set"},
+
+    "Endpoint": "aln:Endpoint",
+    "endpointURL": "schema:endpointURL",
+    "endpointDescription": "schema:endpointDescription"
+  }
+}

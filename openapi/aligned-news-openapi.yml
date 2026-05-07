@@ -1,0 +1,628 @@
+openapi: 3.1.0
+info:
+  title: Aligned News REST API
+  description: |
+    Read-only REST API for the Aligned News AI intelligence platform.
+
+    The API exposes Aligned News' Stories, Signals, Reports, Bundles, the
+    section-grouped news feed, and full-text search. All endpoints require an
+    API key passed as `Authorization: Bearer alnw_...`. API keys are issued to
+    Pro and Enterprise subscribers from their account page at
+    https://alignednews.com/account.
+
+    Note: this specification was reconstructed by inspecting the Aligned News
+    web application bundle and the published MCP server reference implementation
+    (https://alignednews.com/mcp-server.ts). The provider does not currently
+    publish a machine-readable API description.
+  version: '1.0.0'
+  contact:
+    name: Aligned News
+    url: https://alignednews.com/developers
+  license:
+    name: Aligned News Terms of Service
+    url: https://alignednews.com/
+servers:
+  - url: https://alignednews.com/v1
+    description: Production
+security:
+  - bearerAuth: []
+tags:
+  - name: Stories
+    description: AI news stories curated and synthesized from monitored accounts.
+  - name: Signals
+    description: Early pattern detections with editorial badges.
+  - name: Reports
+    description: Trend deep-dives and longer-form analysis.
+  - name: Bundles
+    description: Curated groupings of related stories around themes.
+  - name: Sections
+    description: Topical sections used to organize stories.
+  - name: News Feed
+    description: All current stories grouped by section.
+  - name: Search
+    description: Full-text search across stories, signals, and reports.
+paths:
+  /stories:
+    get:
+      tags:
+        - Stories
+      summary: List Stories
+      description: List recent AI news stories, optionally filtered by section or tag.
+      operationId: listStories
+      parameters:
+        - name: section
+          in: query
+          description: Filter by section slug.
+          required: false
+          schema:
+            type: string
+        - name: tag
+          in: query
+          description: Filter by tag.
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Maximum number of stories to return (default 20, max 100).
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: A list of stories.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoryListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /stories/{id}:
+    get:
+      tags:
+        - Stories
+      summary: Get Story
+      description: Retrieve a single story by ID, including the full body content.
+      operationId: getStory
+      parameters:
+        - $ref: '#/components/parameters/StoryId'
+      responses:
+        '200':
+          description: A single story.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoryResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /signals:
+    get:
+      tags:
+        - Signals
+      summary: List Signals
+      description: List recent AI signals (early pattern detections from monitored
+        accounts), optionally filtered by badge type.
+      operationId: listSignals
+      parameters:
+        - name: badge
+          in: query
+          description: Filter by badge type.
+          required: false
+          schema:
+            type: string
+            enum:
+              - bullish
+              - caution
+              - critical
+              - signal
+              - interview
+              - vc
+              - action
+        - name: limit
+          in: query
+          description: Maximum number of signals to return (default 50, max 200).
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+            default: 50
+      responses:
+        '200':
+          description: A list of signals.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /signals/{id}:
+    get:
+      tags:
+        - Signals
+      summary: Get Signal
+      description: Retrieve a single signal by ID with full analysis and related
+        stories.
+      operationId: getSignal
+      parameters:
+        - $ref: '#/components/parameters/SignalId'
+      responses:
+        '200':
+          description: A single signal.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /reports:
+    get:
+      tags:
+        - Reports
+      summary: List Reports
+      description: List recent reports (summaries only).
+      operationId: listReports
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of reports to return (default 20, max 100).
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: A list of reports.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /reports/{id}:
+    get:
+      tags:
+        - Reports
+      summary: Get Report
+      description: Retrieve a single report by ID with the full content.
+      operationId: getReport
+      parameters:
+        - $ref: '#/components/parameters/ReportId'
+      responses:
+        '200':
+          description: A single report.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /bundles:
+    get:
+      tags:
+        - Bundles
+      summary: List Bundles
+      description: List bundles, each grouping a set of related stories around a theme.
+      operationId: listBundles
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of bundles to return.
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: A list of bundles.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BundleListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /bundles/{id}:
+    get:
+      tags:
+        - Bundles
+      summary: Get Bundle
+      description: Retrieve a single bundle by ID, including all member stories.
+      operationId: getBundle
+      parameters:
+        - $ref: '#/components/parameters/BundleId'
+      responses:
+        '200':
+          description: A single bundle.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BundleResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /sections:
+    get:
+      tags:
+        - Sections
+      summary: List Sections
+      description: List active news sections used to organize stories.
+      operationId: listSections
+      responses:
+        '200':
+          description: A list of sections.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SectionListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /news-feed:
+    get:
+      tags:
+        - News Feed
+      summary: Get News Feed
+      description: Retrieve all current stories grouped by section.
+      operationId: getNewsFeed
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of stories per section.
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+      responses:
+        '200':
+          description: Stories grouped by section.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsFeedResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /search:
+    get:
+      tags:
+        - Search
+      summary: Search Content
+      description: Full-text search across stories, signals, and reports.
+      operationId: searchContent
+      parameters:
+        - name: q
+          in: query
+          description: Search query (minimum 2 characters).
+          required: true
+          schema:
+            type: string
+            minLength: 2
+        - name: limit
+          in: query
+          description: Maximum results per content type.
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
+      responses:
+        '200':
+          description: Search results grouped by content type.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: alnw_*
+      description: API key issued from https://alignednews.com/account, presented
+        as Authorization Bearer alnw_...
+  parameters:
+    StoryId:
+      name: id
+      in: path
+      required: true
+      description: Story UUID.
+      schema:
+        type: string
+        format: uuid
+    SignalId:
+      name: id
+      in: path
+      required: true
+      description: Signal UUID.
+      schema:
+        type: string
+        format: uuid
+    ReportId:
+      name: id
+      in: path
+      required: true
+      description: Report UUID.
+      schema:
+        type: string
+        format: uuid
+    BundleId:
+      name: id
+      in: path
+      required: true
+      description: Bundle UUID.
+      schema:
+        type: string
+        format: uuid
+  responses:
+    Unauthorized:
+      description: API key missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: object
+          required:
+            - code
+            - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+    Story:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        slug:
+          type: string
+        section:
+          type: string
+        summary:
+          type: string
+        body:
+          type: string
+          description: Full story body. Returned by single-story responses.
+        url:
+          type: string
+          format: uri
+        tags:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
+    StoryListResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Story'
+    StoryResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/Story'
+    Signal:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        badge:
+          type: string
+          enum:
+            - bullish
+            - caution
+            - critical
+            - signal
+            - interview
+            - vc
+            - action
+        summary:
+          type: string
+        analysis:
+          type: string
+          description: Full editorial analysis. Returned by single-signal responses.
+        relatedStories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Story'
+        sourceUrl:
+          type: string
+          format: uri
+        publishedAt:
+          type: string
+          format: date-time
+    SignalListResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Signal'
+    SignalResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/Signal'
+    Report:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        summary:
+          type: string
+        content:
+          type: string
+          description: Full report content. Returned by single-report responses.
+        tags:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
+    ReportListResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
+    ReportResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/Report'
+    Bundle:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        summary:
+          type: string
+        stories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Story'
+        publishedAt:
+          type: string
+          format: date-time
+    BundleListResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bundle'
+    BundleResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/Bundle'
+    Section:
+      type: object
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    SectionListResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Section'
+    NewsFeedResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          description: One entry per active section, each with its stories.
+          items:
+            type: object
+            properties:
+              section:
+                $ref: '#/components/schemas/Section'
+              stories:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Story'
+    SearchResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: object
+          properties:
+            stories:
+              type: array
+              items:
+                $ref: '#/components/schemas/Story'
+            signals:
+              type: array
+              items:
+                $ref: '#/components/schemas/Signal'
+            reports:
+              type: array
+              items:
+                $ref: '#/components/schemas/Report'

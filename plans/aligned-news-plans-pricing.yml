@@ -1,0 +1,117 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Aligned News
+providerId: aligned-news
+created: '2026-05-06'
+modified: '2026-05-06'
+reconciled: false
+tags:
+  - AI
+  - News
+  - Intelligence
+  - Subscription
+description: >-
+  Aligned News is a subscription-based AI news platform with three published
+  tiers: Free, Pro, and Enterprise. The pricing surface is rendered via Clerk
+  Billing on https://alignednews.com/pricing and the price points are not
+  embedded in the public site bundle. Numeric prices below are intentionally
+  null pending direct confirmation from alignednews.com/pricing while signed
+  in. API access is gated behind the Pro tier; the Free tier explicitly does
+  not include API keys.
+sources:
+  - https://alignednews.com/pricing
+  - https://alignednews.com/developers
+  - https://alignednews.com/getting-started
+notes:
+  - Reconciled is false because Aligned News renders prices client-side from
+    Clerk Billing; the public HTML/JS bundle does not embed monthly or annual
+    price values.
+  - Free tier is explicitly limited to "breaking news stories, headlines,
+    signal badges, and report summaries" with no API access (verbatim from
+    site copy).
+  - Pro tier copy on the developers page reads "Upgrade to Pro for API access"
+    and "API keys are available to Pro subscribers".
+  - Enterprise tier copy reads "Enterprise includes team access, priority
+    support, and custom analysis."
+plans:
+  - id: aligned-news-free
+    name: Free
+    type: free
+    description: Free tier exposing breaking news headlines, signal badges, and report
+      summaries. No API access.
+    entries:
+      - label: Monthly subscription
+        name: subscription
+        type: recurring
+        metric: subscription
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+    elements:
+      - name: Breaking news stories
+      - name: Story headlines + summaries
+      - name: Signal badges + text
+      - name: Report titles + summaries
+      - name: Bundle details with stories
+      - name: No API access
+  - id: aligned-news-pro
+    name: Pro
+    type: recurring
+    description: Pro tier unlocking full content across stories, signals, reports,
+      bundles, plus REST API access via personal Bearer alnw_ keys. Pricing
+      surface rendered via Clerk Billing - confirm current rate at
+      https://alignednews.com/pricing.
+    entries:
+      - label: Pro subscription (monthly)
+        name: subscription_monthly
+        type: recurring
+        metric: subscription
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: null
+        userMultiplied: false
+      - label: Pro subscription (annual)
+        name: subscription_annual
+        type: recurring
+        metric: subscription
+        limit: 1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: null
+        userMultiplied: false
+    elements:
+      - name: Full access to everything on Aligned News
+      - name: Full news feed across all sections
+      - name: All story sections + full articles
+      - name: Full signal analysis
+      - name: Complete report content
+      - name: API access for your agents
+      - name: MCP server access
+  - id: aligned-news-enterprise
+    name: Enterprise
+    type: contact-sales
+    description: Enterprise tier with team access, priority support, and custom
+      analysis. Contact Aligned News for pricing.
+    entries:
+      - label: Enterprise subscription
+        name: subscription
+        type: contact-sales
+        metric: subscription
+        limit: -1
+        timeFrame: contract
+        geo: global
+        unit: 1
+        price: null
+        userMultiplied: false
+    elements:
+      - name: Everything in Pro
+      - name: Team access
+      - name: Priority support
+      - name: Custom analysis

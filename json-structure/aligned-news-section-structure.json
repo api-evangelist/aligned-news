@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/json-structure/aligned-news-section-structure.json",
+  "name": "Section",
+  "description": "An Aligned News section used to organize stories.",
+  "type": "object",
+  "properties": {
+    "slug": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" }
+  },
+  "required": ["slug", "name"]
+}

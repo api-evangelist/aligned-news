@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "id": "25b1b71a-18a5-4fa7-94a1-d530b02cba61",
+      "title": "Notable Researcher Joins Compute-Heavy Foundation Lab",
+      "badge": "signal",
+      "summary": "A respected researcher with prior frontier-lab experience announced a move to a heavily compute-resourced foundation lab.",
+      "sourceUrl": "https://alignednews.com/signals/25b1b71a-18a5-4fa7-94a1-d530b02cba61",
+      "publishedAt": "2026-05-06T13:40:00Z"
+    },
+    {
+      "id": "9ebbf035-42d7-4d9e-88d5-67ddb4daabed",
+      "title": "Quiet GPU Allocation Shift Across Hyperscalers",
+      "badge": "caution",
+      "summary": "Several reliable industry watchers flagged unusual GPU allocation patterns at hyperscalers within the past 48 hours.",
+      "sourceUrl": "https://alignednews.com/signals/9ebbf035-42d7-4d9e-88d5-67ddb4daabed",
+      "publishedAt": "2026-05-06T09:18:00Z"
+    }
+  ]
+}
