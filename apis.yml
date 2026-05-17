@@ -35,7 +35,7 @@ apis:
         url: https://alignednews.com/how-it-works
       - type: Pricing
         url: https://alignednews.com/pricing
-      - type: Sign Up
+      - type: SignUp
         url: https://alignednews.com/getting-started
   - aid: aligned-news:aligned-news-rest-api
     name: Aligned News REST API
@@ -63,7 +63,7 @@ apis:
         url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/openapi/aligned-news-openapi.yml
       - type: Plans
         url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
-      - type: Rate Limits
+      - type: RateLimits
         url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
       - type: FinOps
         url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
@@ -100,13 +100,13 @@ common:
   - url: https://alignednews.com/how-it-works
     type: How It Works
   - url: https://alignednews.com/getting-started
-    type: Getting Started
+    type: GettingStarted
   - url: https://alignednews.com/pricing
     type: Pricing
   - url: https://alignednews.com/developers
     type: Developers
   - url: https://alignednews.com/account
-    type: Sign Up
+    type: SignUp
   - url: https://alignednews.com/sitemap.xml
     type: Sitemap
   - url: https://alignednews.com/robots.txt
