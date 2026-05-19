@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Aligned News REST API — Search
+  description: 'Aligned News REST API — Search. 1 operations. Lead operation: Search Content. Self-contained Naftiko capability
+    covering one Aligned News business surface.'
+  tags:
+  - Aligned News
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ALIGNED_NEWS_API_KEY: ALIGNED_NEWS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: aligned-news-search
+    baseUri: https://alignednews.com/v1
+    description: Aligned News REST API — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: search
+      path: /search
+      operations:
+      - name: searchcontent
+        method: GET
+        description: Search Content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Search query (minimum 2 characters).
+          required: true
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum results per content type.
+    authentication:
+      type: bearer
+      token: '{{env.ALIGNED_NEWS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: aligned-news-search-rest
+    port: 8080
+    description: REST adapter for Aligned News REST API — Search. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/search
+      name: search
+      description: REST surface for search.
+      operations:
+      - method: GET
+        name: searchcontent
+        description: Search Content
+        call: aligned-news-search.searchcontent
+        with:
+          q: rest.q
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: aligned-news-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Aligned News REST API — Search. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: search-content
+      description: Search Content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: aligned-news-search.searchcontent
+      with:
+        q: tools.q
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,117 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Aligned News REST API — Signals
+  description: 'Aligned News REST API — Signals. 2 operations. Lead operation: List Signals. Self-contained Naftiko capability
+    covering one Aligned News business surface.'
+  tags:
+  - Aligned News
+  - Signals
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ALIGNED_NEWS_API_KEY: ALIGNED_NEWS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: aligned-news-signals
+    baseUri: https://alignednews.com/v1
+    description: Aligned News REST API — Signals business capability. Self-contained, no shared references.
+    resources:
+    - name: signals
+      path: /signals
+      operations:
+      - name: listsignals
+        method: GET
+        description: List Signals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: badge
+          in: query
+          type: string
+          description: Filter by badge type.
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of signals to return (default 50, max 200).
+    - name: signals-id
+      path: /signals/{id}
+      operations:
+      - name: getsignal
+        method: GET
+        description: Get Signal
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ALIGNED_NEWS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: aligned-news-signals-rest
+    port: 8080
+    description: REST adapter for Aligned News REST API — Signals. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/signals
+      name: signals
+      description: REST surface for signals.
+      operations:
+      - method: GET
+        name: listsignals
+        description: List Signals
+        call: aligned-news-signals.listsignals
+        with:
+          badge: rest.badge
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/signals/{id}
+      name: signals-id
+      description: REST surface for signals-id.
+      operations:
+      - method: GET
+        name: getsignal
+        description: Get Signal
+        call: aligned-news-signals.getsignal
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: aligned-news-signals-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Aligned News REST API — Signals. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-signals
+      description: List Signals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: aligned-news-signals.listsignals
+      with:
+        badge: tools.badge
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-signal
+      description: Get Signal
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: aligned-news-signals.getsignal
+      outputParameters:
+      - type: object
+        mapping: $.
