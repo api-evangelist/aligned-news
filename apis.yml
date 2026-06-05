@@ -1,8 +1,9 @@
 aid: aligned-news
 name: Aligned News
-description: Aligned News is an AI-native intelligence and news platform that synthesizes AI-powered briefings from 63 curated
-  X lists tracking 100,000+ accounts in AI, tech, and science, and publishes Stories, Signals, Reports, and Bundles via web,
-  REST API, and a downloadable MCP server for AI tools like Claude, Cursor, and Windsurf.
+description: >-
+  Aligned News is an AI-native intelligence and news platform that synthesizes AI-powered briefings from 63 curated X
+  lists tracking 100,000+ accounts in AI, tech, and science, and publishes Stories, Signals, Reports, and Bundles via
+  web, REST API, and a downloadable MCP server for AI tools like Claude, Cursor, and Windsurf.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -12,147 +13,138 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 tags:
-- AI
-- News
-- Intelligence
-- MCP
-- Signals
+  - AI
+  - News
+  - Intelligence
+  - MCP
+  - Signals
 url-source: https://alignednews.com/
 apis:
-- aid: aligned-news:aligned-news
-  name: Aligned News
-  description: Consumer-facing AI news intelligence platform delivering Stories, Signals, Reports, and Bundles synthesized
-    from 63 curated X lists tracking 100,000+ accounts across AI, technology, and science.
-  humanURL: https://alignednews.com/
-  tags:
-  - AI
-  - News
-  - Intelligence
-  properties:
-  - type: Documentation
-    url: https://alignednews.com/how-it-works
-  - type: Pricing
-    url: https://alignednews.com/pricing
-  - type: SignUp
-    url: https://alignednews.com/getting-started
-- aid: aligned-news:aligned-news-rest-api
-  name: Aligned News REST API
-  description: Read-only REST API for Aligned News content. Lets developers and AI agents fetch Stories, Signals, Reports,
-    Bundles, the section-grouped news feed, and run full-text search across all content. All endpoints require an API key
-    passed as Authorization Bearer alnw_... and are reserved for Pro subscribers.
-  humanURL: https://alignednews.com/developers
-  baseURL: https://alignednews.com/v1
-  tags:
-  - AI
-  - News
-  - Intelligence
-  - REST
-  - Signals
-  - Search
-  properties:
-  - type: Documentation
-    url: https://alignednews.com/developers
-  - type: Authentication
-    url: https://alignednews.com/account
-  - type: Pricing
-    url: https://alignednews.com/pricing
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/openapi/aligned-news-openapi.yml
-  - type: Plans
-    url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
-  - type: RateLimits
-    url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
-  - type: FinOps
-    url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
-  - type: NaftikoCapability
-    url: capabilities/aligned-news-bundles.yaml
-  - type: NaftikoCapability
-    url: capabilities/aligned-news-news-feed.yaml
-  - type: NaftikoCapability
-    url: capabilities/aligned-news-reports.yaml
-  - type: NaftikoCapability
-    url: capabilities/aligned-news-search.yaml
-  - type: NaftikoCapability
-    url: capabilities/aligned-news-sections.yaml
-  - type: NaftikoCapability
-    url: capabilities/aligned-news-signals.yaml
-  - type: NaftikoCapability
-    url: capabilities/aligned-news-stories.yaml
-- aid: aligned-news:aligned-news-mcp-server
-  name: Aligned News MCP Server
-  description: Reference Model Context Protocol server distributed as a single TypeScript file (mcp-server.ts) that proxies
-    the Aligned News REST API to MCP-compatible AI tools like Claude Code, Claude Desktop, Cursor, and Windsurf. Exposes search_news,
-    get_stories, get_story, get_signals, get_signal, get_reports, get_report, and get_sections tools, plus an aligned://news-feed
-    resource. Authenticates with a user-provided ALIGNED_API_KEY (Bearer alnw_...).
-  humanURL: https://alignednews.com/developers
-  baseURL: https://alignednews.com/v1
-  tags:
-  - AI
-  - MCP
-  - Agents
-  - Tooling
-  properties:
-  - type: Documentation
-    url: https://alignednews.com/developers
-  - type: Source Code
-    url: https://alignednews.com/mcp-server.ts
-  - type: Authentication
-    url: https://alignednews.com/account
+  - aid: aligned-news:aligned-news
+    name: Aligned News
+    description: >-
+      Consumer-facing AI news intelligence platform delivering Stories, Signals, Reports, and Bundles synthesized from
+      63 curated X lists tracking 100,000+ accounts across AI, technology, and science.
+    humanURL: https://alignednews.com/
+    tags:
+      - AI
+      - News
+      - Intelligence
+    properties:
+      - type: Documentation
+        url: https://alignednews.com/how-it-works
+      - type: Pricing
+        url: https://alignednews.com/pricing
+      - type: SignUp
+        url: https://alignednews.com/getting-started
+  - aid: aligned-news:aligned-news-rest-api
+    name: Aligned News REST API
+    description: >-
+      Read-only REST API for Aligned News content. Lets developers and AI agents fetch Stories, Signals, Reports,
+      Bundles, the section-grouped news feed, and run full-text search across all content. All endpoints require an API
+      key passed as Authorization Bearer alnw_... and are reserved for Pro subscribers.
+    humanURL: https://alignednews.com/developers
+    baseURL: https://alignednews.com/v1
+    tags:
+      - AI
+      - News
+      - Intelligence
+      - REST
+      - Signals
+      - Search
+    properties:
+      - type: Documentation
+        url: https://alignednews.com/developers
+      - type: Authentication
+        url: https://alignednews.com/account
+      - type: Pricing
+        url: https://alignednews.com/pricing
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/openapi/aligned-news-openapi.yml
+      - type: Plans
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
+      - type: RateLimits
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
+  - aid: aligned-news:aligned-news-mcp-server
+    name: Aligned News MCP Server
+    description: >-
+      Reference Model Context Protocol server distributed as a single TypeScript file (mcp-server.ts) that proxies the
+      Aligned News REST API to MCP-compatible AI tools like Claude Code, Claude Desktop, Cursor, and Windsurf. Exposes
+      search_news, get_stories, get_story, get_signals, get_signal, get_reports, get_report, and get_sections tools,
+      plus an aligned://news-feed resource. Authenticates with a user-provided ALIGNED_API_KEY (Bearer alnw_...).
+    humanURL: https://alignednews.com/developers
+    baseURL: https://alignednews.com/v1
+    tags:
+      - AI
+      - MCP
+      - Agents
+      - Tooling
+    properties:
+      - type: Documentation
+        url: https://alignednews.com/developers
+      - type: Source Code
+        url: https://alignednews.com/mcp-server.ts
+      - type: Authentication
+        url: https://alignednews.com/account
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-- FN: Aligned News
-  url: https://alignednews.com/
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+  - FN: Aligned News
+    url: https://alignednews.com/
 common:
-- url: https://alignednews.com/
-  type: Website
-- url: https://alignednews.com/how-it-works
-  type: How It Works
-- url: https://alignednews.com/getting-started
-  type: GettingStarted
-- url: https://alignednews.com/pricing
-  type: Pricing
-- url: https://alignednews.com/developers
-  type: Developers
-- url: https://alignednews.com/account
-  type: SignUp
-- url: https://alignednews.com/sitemap.xml
-  type: Sitemap
-- url: https://alignednews.com/robots.txt
-  type: Robots TXT
-- url: https://alignednews.com/research
-  type: Research
-- url: https://alignednews.com/signals
-  type: Signals
-- url: https://alignednews.com/reports
-  type: Reports
-- url: https://alignednews.com/bundles
-  type: Bundles
-- url: https://alignednews.com/ai
-  type: AI
-- url: https://alignednews.com/mcp-server.ts
-  type: MCP Server
-- url: https://github.com/Aligned-news
-  type: GitHub Org
-- type: Features
-  data:
-  - AI-powered intelligence from 63 curated X lists
-  - Tracks 100,000+ accounts across AI, technology, and science
-  - Stories surface breaking AI news with full body content
-  - Signals provide early pattern detection with badges (bullish, caution, critical, signal, interview, vc, action)
-  - Reports deliver trend deep-dives and summaries
-  - Bundles group related stories around themes
-  - Section-organized news feed across all topics
-  - Full-text Search across stories, signals, and reports
-  - REST API gated behind Pro tier with Bearer alnw_ API keys
-  - Downloadable single-file MCP server for Claude Code, Claude Desktop, Cursor, and Windsurf
-  - Free tier exposes headlines, summaries, signal badges, and report summaries only
-  - Pro tier unlocks full content + API access
-  - Enterprise tier adds team access, priority support, and custom analysis
-  - Built on Fly.io (edge), Supabase (data), Clerk (auth and billing), Stripe (payments)
-  sources:
-  - https://alignednews.com/
-  - https://alignednews.com/developers
-  - https://alignednews.com/pricing
-  - https://alignednews.com/mcp-server.ts
-  updated: '2026-05-06'
+  - url: https://alignednews.com/
+    type: Website
+  - url: https://alignednews.com/how-it-works
+    type: How It Works
+  - url: https://alignednews.com/getting-started
+    type: GettingStarted
+  - url: https://alignednews.com/pricing
+    type: Pricing
+  - url: https://alignednews.com/developers
+    type: Developers
+  - url: https://alignednews.com/account
+    type: SignUp
+  - url: https://alignednews.com/sitemap.xml
+    type: Sitemap
+  - url: https://alignednews.com/robots.txt
+    type: Robots TXT
+  - url: https://alignednews.com/research
+    type: Research
+  - url: https://alignednews.com/signals
+    type: Signals
+  - url: https://alignednews.com/reports
+    type: Reports
+  - url: https://alignednews.com/bundles
+    type: Bundles
+  - url: https://alignednews.com/ai
+    type: AI
+  - url: https://alignednews.com/mcp-server.ts
+    type: MCP Server
+  - url: https://github.com/Aligned-news
+    type: GitHub Org
+  - type: Features
+    data:
+      - AI-powered intelligence from 63 curated X lists
+      - Tracks 100,000+ accounts across AI, technology, and science
+      - Stories surface breaking AI news with full body content
+      - Signals provide early pattern detection with badges (bullish, caution, critical, signal, interview, vc, action)
+      - Reports deliver trend deep-dives and summaries
+      - Bundles group related stories around themes
+      - Section-organized news feed across all topics
+      - Full-text Search across stories, signals, and reports
+      - REST API gated behind Pro tier with Bearer alnw_ API keys
+      - Downloadable single-file MCP server for Claude Code, Claude Desktop, Cursor, and Windsurf
+      - Free tier exposes headlines, summaries, signal badges, and report summaries only
+      - Pro tier unlocks full content + API access
+      - Enterprise tier adds team access, priority support, and custom analysis
+      - Built on Fly.io (edge), Supabase (data), Clerk (auth and billing), Stripe (payments)
+    sources:
+      - https://alignednews.com/
+      - https://alignednews.com/developers
+      - https://alignednews.com/pricing
+      - https://alignednews.com/mcp-server.ts
+    updated: '2026-05-06'
