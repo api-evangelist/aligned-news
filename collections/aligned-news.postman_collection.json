@@ -1,0 +1,1964 @@
+{
+  "item": [
+    {
+      "id": "5382e642-5272-4d9b-833a-df7921ffed31",
+      "name": "Stories",
+      "description": {
+        "content": "AI news stories curated and synthesized from monitored accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aeb7ad14-fb1d-4775-aabb-7a5212d772c7",
+          "name": "List Stories",
+          "request": {
+            "name": "List Stories",
+            "description": {
+              "content": "List recent AI news stories, optionally filtered by section or tag.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "section",
+                  "value": "<string>",
+                  "description": "Filter by section slug."
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>",
+                  "description": "Filter by tag."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of stories to return (default 20, max 100)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a1a2ded-7140-44ca-9938-d992dbf3bcf3",
+              "name": "A list of stories.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "section",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"61509cd9-4764-cd9b-f9d7-7757b36f324b\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"section\": \"string\",\n      \"summary\": \"string\",\n      \"body\": \"string\",\n      \"url\": \"https://e.fwlM,ZkKKsaA4nw3xRhTkkTAqWvh-aEXBNtlv9+P5xDnwrtxD0CvePkFQ\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"publishedAt\": \"2002-08-27T07:42:04.773Z\"\n    },\n    {\n      \"id\": \"a55be3a9-3763-81b6-94a7-5635ce055cfe\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"section\": \"string\",\n      \"summary\": \"string\",\n      \"body\": \"string\",\n      \"url\": \"https://wgxdLopEzIHYmlwWFxsY.ardiurwPITZNQgvQe,3eUjGls3NGPKJEWMgv\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"publishedAt\": \"2014-03-15T05:51:28.466Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "272ec659-ce7d-4a1f-aeec-7325c1d7f916",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "section",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0620ed89-3682-4f58-9e55-6288d6567992",
+          "name": "Get Story",
+          "request": {
+            "name": "Get Story",
+            "description": {
+              "content": "Retrieve a single story by ID, including the full body content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stories",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Story UUID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a566ab87-5d42-4723-aa34-a89a63f3d293",
+              "name": "A single story.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Story UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"5aa966cd-ee9b-522e-c281-28f58c179c0f\",\n    \"title\": \"string\",\n    \"slug\": \"string\",\n    \"section\": \"string\",\n    \"summary\": \"string\",\n    \"body\": \"string\",\n    \"url\": \"http://CH.flqB6ez+y,aagQUASuB-St,rAi,yoxa22WLT-9CxIyAuMj3Qj2ONAoAnIF+\",\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"publishedAt\": \"1953-02-02T10:57:23.113Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11ae1cc8-9b48-45b6-b066-d8534235cfbe",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Story UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06676721-2dde-4ce6-a513-ea44e51301c0",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Story UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "13a66033-34cf-4f16-9f90-fcd631cfe85b",
+      "name": "Signals",
+      "description": {
+        "content": "Early pattern detections with editorial badges.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "903d8b32-844e-463b-bc89-4776b793d693",
+          "name": "List Signals",
+          "request": {
+            "name": "List Signals",
+            "description": {
+              "content": "List recent AI signals (early pattern detections from monitored accounts), optionally filtered by badge type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "signals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "badge",
+                  "value": "<string>",
+                  "description": "Filter by badge type."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of signals to return (default 50, max 200)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ab772af-9374-475f-b1f2-fb2b41211b4f",
+              "name": "A list of signals.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "signals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "badge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"0846347d-ddf8-ff34-0308-160130cab9b8\",\n      \"title\": \"string\",\n      \"badge\": \"signal\",\n      \"summary\": \"string\",\n      \"analysis\": \"string\",\n      \"relatedStories\": [\n        {\n          \"id\": \"d26818dd-1e33-dab9-12ec-238622a3ab8b\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"http://hvYROWtVDiFcnKUOSFFXt.zwz-11OsA-glpnrv.gtHaXrLbt9tUUSmANwiRxotnATUOYnR-Y.GXVgUwBOFslasmxc\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1966-01-18T13:08:14.064Z\"\n        },\n        {\n          \"id\": \"8e483b98-91d7-81e0-24e1-ac8b6df7f9db\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://oJCtXtnLtzKkEZ.qbAAZ-nMl1KQX-2XBCBXUYi9LwWXpHepN-QdEbJTPQ,I7.Y5\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2012-10-05T13:00:16.376Z\"\n        }\n      ],\n      \"sourceUrl\": \"https://SgmAJOaqBkFsKXtOStxkatDpMmDAwwif.pwkt90W8d0aS4CW3TPTYRKOXAT9riJglMJv1erd,\",\n      \"publishedAt\": \"1993-04-17T15:43:59.197Z\"\n    },\n    {\n      \"id\": \"32982d99-45b3-8690-ba31-17e8ec786afe\",\n      \"title\": \"string\",\n      \"badge\": \"signal\",\n      \"summary\": \"string\",\n      \"analysis\": \"string\",\n      \"relatedStories\": [\n        {\n          \"id\": \"fe2c9cd7-9838-25f6-d6b9-2297e3c0b873\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://dSVrpUUjPYaxXVZKjQgpLRyk.atasx7E7yANOHfapIOu3zKnRqLGLZ4u.BJLvs9ql7qrd8JxuAZvaVJIpgC.Y2SELugNeS2kDyp\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2006-12-01T22:51:30.143Z\"\n        },\n        {\n          \"id\": \"4fc93578-0b9b-780f-5c2c-6a6fa83c75fc\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://XzZONgM.osqxg4EX6w,PBovHd6Avxu8mw-DfixzYR,Ew1z79\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1984-11-09T09:01:03.771Z\"\n        }\n      ],\n      \"sourceUrl\": \"http://aVVk.efQCnhDefSWrXLcorZKGhGye0\",\n      \"publishedAt\": \"1996-12-27T19:16:10.081Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d20c7c76-12a0-4480-bc38-07705c02692f",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "signals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "badge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "368d6bdf-4bf5-4d82-a4c5-850c0f195315",
+          "name": "Get Signal",
+          "request": {
+            "name": "Get Signal",
+            "description": {
+              "content": "Retrieve a single signal by ID with full analysis and related stories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "signals",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Signal UUID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14087838-6928-4d7a-aba7-e0bc617cf00e",
+              "name": "A single signal.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "signals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Signal UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"55282abe-f5a4-2f01-b2d9-31202fc2b4d4\",\n    \"title\": \"string\",\n    \"badge\": \"vc\",\n    \"summary\": \"string\",\n    \"analysis\": \"string\",\n    \"relatedStories\": [\n      {\n        \"id\": \"5d0b2abb-d1aa-2e5e-40f7-db7fab8bc1ea\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"https://QoOStuCoxU.aoIhod.\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1998-01-16T07:02:46.097Z\"\n      },\n      {\n        \"id\": \"beda7952-ddd8-ade7-4d3d-99c0c9f19e7d\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"http://FFRAQxbQk.gmzBmQhUv4DdaNyTM72b4neiNG.pT\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1965-05-02T13:08:57.442Z\"\n      }\n    ],\n    \"sourceUrl\": \"http://kxWWYdeosnGufLmMbis.vxxTFfCPv9kUJoi45Ko4iCzBcdRezWFVuqOkQcOraugTqWV9zK4wZ4UNSlHooS.xLQdLZ\",\n    \"publishedAt\": \"1959-09-07T11:16:51.996Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5215acc9-065f-482d-a8cc-633c54533984",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "signals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Signal UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04e41077-8159-41ce-83e5-7c156d534d02",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "signals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Signal UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "09243c5c-c871-4375-9771-0ab354f72ca8",
+      "name": "Reports",
+      "description": {
+        "content": "Trend deep-dives and longer-form analysis.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f9d8aa25-c318-43c5-8145-5bf28eae7ab5",
+          "name": "List Reports",
+          "request": {
+            "name": "List Reports",
+            "description": {
+              "content": "List recent reports (summaries only).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of reports to return (default 20, max 100)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47c2e428-e0d5-42e4-bb0e-d50c6a7b555d",
+              "name": "A list of reports.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"0c42e681-f292-a973-a091-5b73259c555e\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"content\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"publishedAt\": \"2015-07-21T11:35:50.187Z\"\n    },\n    {\n      \"id\": \"4e755efa-9c5d-b1e1-b94e-c717bea3f6d5\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"content\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"publishedAt\": \"1965-04-11T08:43:43.676Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "610e7b31-c9d9-4fa2-a902-cf3b1b51958b",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8d6baaa-203d-45ed-aef3-02c93878e4c6",
+          "name": "Get Report",
+          "request": {
+            "name": "Get Report",
+            "description": {
+              "content": "Retrieve a single report by ID with the full content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Report UUID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84d74e28-988f-4c43-9f21-26d3432de521",
+              "name": "A single report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Report UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"3a236a9c-5415-edb3-f439-cc87d46f7ecd\",\n    \"title\": \"string\",\n    \"summary\": \"string\",\n    \"content\": \"string\",\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"publishedAt\": \"1980-12-02T07:01:16.434Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "730bd92e-7243-4d07-b569-2a9eead05248",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Report UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88108f6b-4088-4672-81aa-29bfd68671f1",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Report UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7fcf0dc6-80b3-4a62-b11d-987bcdd9a442",
+      "name": "Bundles",
+      "description": {
+        "content": "Curated groupings of related stories around themes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51b8a969-d26f-461a-8904-318582018e53",
+          "name": "List Bundles",
+          "request": {
+            "name": "List Bundles",
+            "description": {
+              "content": "List bundles, each grouping a set of related stories around a theme.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of bundles to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3ab82a6-564c-45cd-b9e6-154ce3de8b8b",
+              "name": "A list of bundles.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"d80a791c-5903-bc5d-539f-0a36be9cb985\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"stories\": [\n        {\n          \"id\": \"e9c0becd-7a35-06b0-3cbc-4f15d522b60d\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"http://UShqdN.glpqIMklS-YM3Shsm8i8FrePXOEwVYbJXyHq1fQwxFTSUdp4DRu\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1994-02-05T05:17:37.521Z\"\n        },\n        {\n          \"id\": \"2b6cd24e-b873-d6ad-d64a-1532d63c58f1\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://xwRkpmtoTAcuJNsrJApZsiQVeKcIZ.xboarWlvMb\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1971-02-13T15:18:57.438Z\"\n        }\n      ],\n      \"publishedAt\": \"2011-03-06T16:47:50.421Z\"\n    },\n    {\n      \"id\": \"5f3254c0-a5da-ef5b-49d7-ef989e5ec8e2\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"stories\": [\n        {\n          \"id\": \"3cbc6671-1e48-5196-5ea9-12cecd1c9603\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://FOGFZtjTGPgDegEzXnOeLflgfoYUW.nbFxhPHvRrnRUhSBgvHeFR,.LuFYsS5nIPpTDO4nPttq0rCyVLR,bVnU1UJKL2cjZdg+1NO\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2013-03-04T20:41:22.942Z\"\n        },\n        {\n          \"id\": \"67433b46-f509-9b44-d715-46f274244305\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://eYSyKyKijApRamGhMflpMawMy.zfeUVQfKxW6l,WBw3kwykZWaV1\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1998-07-25T09:44:40.742Z\"\n        }\n      ],\n      \"publishedAt\": \"1948-09-22T09:21:21.627Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b46c2d1f-277c-44ed-a863-62650531ac3f",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bab9a1c3-501e-416a-b023-7178f395dfac",
+          "name": "Get Bundle",
+          "request": {
+            "name": "Get Bundle",
+            "description": {
+              "content": "Retrieve a single bundle by ID, including all member stories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Bundle UUID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e3a23a2-c609-4273-8cea-fb34976bef4b",
+              "name": "A single bundle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Bundle UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"6e70084c-75cf-844e-877c-c0d19f1706ec\",\n    \"title\": \"string\",\n    \"summary\": \"string\",\n    \"stories\": [\n      {\n        \"id\": \"2a10de7b-cbbc-eba0-bded-4de6078c802f\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"https://XxZmLiFvQZssGIEAI.wwugkoeLdpbGF5juzZ\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"2024-04-08T16:11:27.436Z\"\n      },\n      {\n        \"id\": \"2a5de388-9239-6c1b-a6de-1526f437cf07\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"https://yFiEiWQ.wkflYJmU.lQxeuxuJJlw4OSxU8ehJqM+Yazlm2,q0vwfYSkd.95.mKhKX2xvFMFHWx\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"2004-02-10T06:03:15.666Z\"\n      }\n    ],\n    \"publishedAt\": \"1973-12-13T23:20:30.155Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af82bf23-ef5f-47fd-b02a-dcb61b961e42",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Bundle UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d993bb94-ef82-4bbd-b721-46fcc527e5e7",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Bundle UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2b2276fa-794c-496e-b530-fece4e3fedef",
+      "name": "Sections",
+      "description": {
+        "content": "Topical sections used to organize stories.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "17119796-f167-430e-b629-a5f238e6c775",
+          "name": "List Sections",
+          "request": {
+            "name": "List Sections",
+            "description": {
+              "content": "List active news sections used to organize stories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59a5f355-243c-4a70-8825-02adb7acb36f",
+              "name": "A list of sections.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"slug\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"slug\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4cc4e103-3359-4d23-bffe-6515ec888fbe",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0afdbdc0-9d92-492b-a763-f3c229b8fa3d",
+      "name": "News Feed",
+      "description": {
+        "content": "All current stories grouped by section.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b252b538-335f-402b-89f4-915a3f638926",
+          "name": "Get News Feed",
+          "request": {
+            "name": "Get News Feed",
+            "description": {
+              "content": "Retrieve all current stories grouped by section.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news-feed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of stories per section."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4a9ceca-80a7-4287-989b-a0b7d6a703bb",
+              "name": "Stories grouped by section.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news-feed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"section\": {\n        \"slug\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\"\n      },\n      \"stories\": [\n        {\n          \"id\": \"1ff41a0b-0ca1-5d66-f3cf-6ea13a726d4e\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://w.rplYjk5.GFIuPk-0cYDVcnpQ,aupSbz7hduS7I2zNtjhID\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2013-06-11T20:34:23.089Z\"\n        },\n        {\n          \"id\": \"99bc0747-ac3a-24cb-491d-836a21189c0d\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"http://ApUVKGExcH.yrgibiKO8-dFxcKrYHKbum0gvRKCmbHyuIzxL.yRnydwvJX\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2015-04-10T22:29:20.141Z\"\n        }\n      ]\n    },\n    {\n      \"section\": {\n        \"slug\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\"\n      },\n      \"stories\": [\n        {\n          \"id\": \"a649877d-d220-9ef3-7978-2d4470b7cb0f\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://glwjxaRvnRqYYmXrntyeZqMLx.rjzcBk4CB5G39iDGWVBHYfNNCOJ8SXzC5\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1992-10-22T21:38:05.870Z\"\n        },\n        {\n          \"id\": \"fb831b63-6a29-58fd-c021-6bbb1225874b\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"http://QhIPsQAncNvN.cgewXRg8iGkgdBzXqZtGU505EvA6kZc.bpg\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1974-10-24T09:00:43.292Z\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "676faa2c-f2fe-44d7-8058-6fe82c94e4c1",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news-feed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e38ab481-6a01-4c3b-adaa-cb63c4748d97",
+      "name": "Search",
+      "description": {
+        "content": "Full-text search across stories, signals, and reports.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "243a2601-ca39-4bb3-a288-7fac472ba6cd",
+          "name": "Search Content",
+          "request": {
+            "name": "Search Content",
+            "description": {
+              "content": "Full-text search across stories, signals, and reports.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Search query (minimum 2 characters)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Maximum results per content type."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "448ad833-08b6-416b-b98e-3dc1132c2afb",
+              "name": "Search results grouped by content type.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"stories\": [\n      {\n        \"id\": \"42fa5879-d472-7077-07fd-d2edee27581f\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"http://SjazwhPSJwYgjaQTnbmFvIlVL.daiyFImF6MSSI0\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1989-02-09T12:45:44.875Z\"\n      },\n      {\n        \"id\": \"92342e16-db9f-4cb7-889c-2864769a255c\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"http://JMMwqNCLkbCIUXTTIpiikC.gcbIn9jcgpYEylD3Uw8XOK6dLzYVyTn0AJFgeXVg9inPaoxY3B.mrmiNXL3VtFaCadRxZ9Q\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1985-01-11T23:02:01.722Z\"\n      }\n    ],\n    \"signals\": [\n      {\n        \"id\": \"655faeaa-1f14-fb5a-173a-d066f7a91b99\",\n        \"title\": \"string\",\n        \"badge\": \"bullish\",\n        \"summary\": \"string\",\n        \"analysis\": \"string\",\n        \"relatedStories\": [\n          {\n            \"id\": \"145092f0-9e95-407b-8135-9baef0a6d465\",\n            \"title\": \"string\",\n            \"slug\": \"string\",\n            \"section\": \"string\",\n            \"summary\": \"string\",\n            \"body\": \"string\",\n            \"url\": \"https://mLRRXqnbaDqULdKreDcv.eabg7j37gAPE7CGLSciA539aUEatVLABwUox+91Sk+DpoXSrZpU7i+tfiRcor\",\n            \"tags\": [\n              \"string\",\n              \"string\"\n            ],\n            \"publishedAt\": \"2020-04-17T05:49:11.313Z\"\n          },\n          {\n            \"id\": \"9f40d6ed-0ad3-fc4d-bb2d-c0ef2224358b\",\n            \"title\": \"string\",\n            \"slug\": \"string\",\n            \"section\": \"string\",\n            \"summary\": \"string\",\n            \"body\": \"string\",\n            \"url\": \"http://FvsRsRVQJofTPn.aiejDCTSzEtpzakIFIJOU60,kKzO8+hTfd+2wB0gN\",\n            \"tags\": [\n              \"string\",\n              \"string\"\n            ],\n            \"publishedAt\": \"1946-09-20T09:59:53.107Z\"\n          }\n        ],\n        \"sourceUrl\": \"http://LCfrGxEs.yqw9dUtzYMDS7lR3lIY2GQMiXfkS4hLv0aNYs1UwFlFxqHhy9f1m\",\n        \"publishedAt\": \"2014-02-24T11:47:30.973Z\"\n      },\n      {\n        \"id\": \"7e86d31c-9c68-d40a-7fe7-3cfc850d8b85\",\n        \"title\": \"string\",\n        \"badge\": \"action\",\n        \"summary\": \"string\",\n        \"analysis\": \"string\",\n        \"relatedStories\": [\n          {\n            \"id\": \"ae7373a4-05b0-0edf-187a-175f3c986bec\",\n            \"title\": \"string\",\n            \"slug\": \"string\",\n            \"section\": \"string\",\n            \"summary\": \"string\",\n            \"body\": \"string\",\n            \"url\": \"https://tVjsLGARuN.rur-mhntf4bmIYrANPQzlvXAbnxVCh3CEtK14jsl0Btc08Olus\",\n            \"tags\": [\n              \"string\",\n              \"string\"\n            ],\n            \"publishedAt\": \"1982-12-02T11:03:17.144Z\"\n          },\n          {\n            \"id\": \"886a8b22-c60e-035b-53d1-c1057c1e8e3a\",\n            \"title\": \"string\",\n            \"slug\": \"string\",\n            \"section\": \"string\",\n            \"summary\": \"string\",\n            \"body\": \"string\",\n            \"url\": \"http://sHrOYQUKmGoXaeGUizAfYV.eurtBjs0NUO82S7rE6NqUzdNMmDFmNDbXb82FLdFJJC5y3nauJ-,F3Qqn\",\n            \"tags\": [\n              \"string\",\n              \"string\"\n            ],\n            \"publishedAt\": \"1952-04-05T13:13:12.830Z\"\n          }\n        ],\n        \"sourceUrl\": \"http://TqoXuOrCyNjPAx.osjgTxWHNU1pDgFtAhKd8.KIlfRmYXykoYDlKAVa2Qmd6e5Xedlc2UDYbjSYR\",\n        \"publishedAt\": \"1961-04-05T10:38:18.092Z\"\n      }\n    ],\n    \"reports\": [\n      {\n        \"id\": \"4434ecf4-5921-2c0c-ddef-b4d8d518e71a\",\n        \"title\": \"string\",\n        \"summary\": \"string\",\n        \"content\": \"string\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"2002-12-20T13:20:45.467Z\"\n      },\n      {\n        \"id\": \"7eb3f179-fd8d-4171-e2cd-35350b1616c1\",\n        \"title\": \"string\",\n        \"summary\": \"string\",\n        \"content\": \"string\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1998-09-18T16:19:01.754Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a6bdf3a-f5d0-4d32-bbef-91d4cdd1ff5d",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51e67fdf-e9f7-4a65-89a6-5eb4efeff3d7",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://alignednews.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ae3a9504-dc0e-42d3-be77-afc97bef6d46",
+    "name": "Aligned News REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read-only REST API for the Aligned News AI intelligence platform.\n\nThe API exposes Aligned News' Stories, Signals, Reports, Bundles, the\nsection-grouped news feed, and full-text search. All endpoints require an\nAPI key passed as `Authorization: Bearer alnw_...`. API keys are issued to\nPro and Enterprise subscribers from their account page at\nhttps://alignednews.com/account.\n\nNote: this specification was reconstructed by inspecting the Aligned News\nweb application bundle and the published MCP server reference implementation\n(https://alignednews.com/mcp-server.ts). The provider does not currently\npublish a machine-readable API description.\n\n\nContact Support:\n Name: Aligned News",
+      "type": "text/plain"
+    }
+  }
+}

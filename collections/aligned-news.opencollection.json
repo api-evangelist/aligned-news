@@ -1,0 +1,297 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aligned News REST API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Stories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/stories",
+            "params": [
+              {
+                "name": "section",
+                "value": "",
+                "type": "query",
+                "description": "Filter by section slug."
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "Filter by tag."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of stories to return (default 20, max 100)."
+              }
+            ]
+          },
+          "docs": "List recent AI news stories, optionally filtered by section or tag."
+        },
+        {
+          "info": {
+            "name": "Get Story",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/stories/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Story UUID."
+              }
+            ]
+          },
+          "docs": "Retrieve a single story by ID, including the full body content."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Signals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Signals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/signals",
+            "params": [
+              {
+                "name": "badge",
+                "value": "",
+                "type": "query",
+                "description": "Filter by badge type."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of signals to return (default 50, max 200)."
+              }
+            ]
+          },
+          "docs": "List recent AI signals (early pattern detections from monitored accounts), optionally filtered by badge type."
+        },
+        {
+          "info": {
+            "name": "Get Signal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/signals/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Signal UUID."
+              }
+            ]
+          },
+          "docs": "Retrieve a single signal by ID with full analysis and related stories."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/reports",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of reports to return (default 20, max 100)."
+              }
+            ]
+          },
+          "docs": "List recent reports (summaries only)."
+        },
+        {
+          "info": {
+            "name": "Get Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/reports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Report UUID."
+              }
+            ]
+          },
+          "docs": "Retrieve a single report by ID with the full content."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bundles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bundles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/bundles",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bundles to return."
+              }
+            ]
+          },
+          "docs": "List bundles, each grouping a set of related stories around a theme."
+        },
+        {
+          "info": {
+            "name": "Get Bundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/bundles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Bundle UUID."
+              }
+            ]
+          },
+          "docs": "Retrieve a single bundle by ID, including all member stories."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Sections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/sections"
+          },
+          "docs": "List active news sections used to organize stories."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "News Feed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get News Feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/news-feed",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of stories per section."
+              }
+            ]
+          },
+          "docs": "Retrieve all current stories grouped by section."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query (minimum 2 characters)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results per content type."
+              }
+            ]
+          },
+          "docs": "Full-text search across stories, signals, and reports."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
