@@ -35,7 +35,7 @@ apis:
         url: https://alignednews.com/how-it-works
       - type: Pricing
         url: https://alignednews.com/pricing
-      - type: SignUp
+      - type: Signup
         url: https://alignednews.com/getting-started
   - aid: aligned-news:aligned-news-rest-api
     name: Aligned News REST API
@@ -107,7 +107,7 @@ common:
   - url: https://alignednews.com/developers
     type: Developers
   - url: https://alignednews.com/account
-    type: SignUp
+    type: Signup
   - url: https://alignednews.com/sitemap.xml
     type: Sitemap
   - url: https://alignednews.com/robots.txt
@@ -125,7 +125,7 @@ common:
   - url: https://alignednews.com/mcp-server.ts
     type: MCP Server
   - url: https://github.com/Aligned-news
-    type: GitHub Org
+    type: GitHubOrg
   - type: Features
     data:
       - AI-powered intelligence from 63 curated X lists
