@@ -96,6 +96,10 @@ maintainers:
   - FN: Aligned News
     url: https://alignednews.com/
 common:
+  - type: DomainSecurity
+    url: security/aligned-news-domain-security.yml
+  - type: Authentication
+    url: authentication/aligned-news-authentication.yml
   - url: https://alignednews.com/
     type: Website
   - url: https://alignednews.com/how-it-works
@@ -148,3 +152,5 @@ common:
       - https://alignednews.com/pricing
       - https://alignednews.com/mcp-server.ts
     updated: '2026-05-06'
+  - url: https://alignednews.com/feed
+    type: Blog

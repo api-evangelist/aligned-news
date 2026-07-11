@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/aligned-news-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: alnw_*
+  description: API key issued from https://alignednews.com/account, presented as Authorization
+    Bearer alnw_...
+  sources:
+  - openapi/aligned-news-openapi.yml
