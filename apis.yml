@@ -96,6 +96,8 @@ maintainers:
   - FN: Aligned News
     url: https://alignednews.com/
 common:
+  - type: AgenticAccess
+    url: agentic-access/aligned-news-agentic-access.yml
   - type: DomainSecurity
     url: security/aligned-news-domain-security.yml
   - type: Authentication
