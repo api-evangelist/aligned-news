@@ -10,6 +10,6 @@ schemes:
   scheme: bearer
   bearerFormat: alnw_*
   description: API key issued from https://alignednews.com/account, presented as Authorization
-    Bearer alnw_...
+    Bearer [example key]
   sources:
   - openapi/aligned-news-openapi.yml
