@@ -1,0 +1,217 @@
+openapi: 3.1.0
+info:
+  title: Aligned News REST Bundles Search API
+  description: 'Read-only REST API for the Aligned News AI intelligence platform.
+
+
+    The API exposes Aligned News'' Stories, Signals, Reports, Bundles, the
+
+    section-grouped news feed, and full-text search. All endpoints require an
+
+    API key passed as `Authorization: Bearer alnw_...`. API keys are issued to
+
+    Pro and Enterprise subscribers from their account page at
+
+    https://alignednews.com/account.
+
+
+    Note: this specification was reconstructed by inspecting the Aligned News
+
+    web application bundle and the published MCP server reference implementation
+
+    (https://alignednews.com/mcp-server.ts). The provider does not currently
+
+    publish a machine-readable API description.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Aligned News
+    url: https://alignednews.com/developers
+  license:
+    name: Aligned News Terms of Service
+    url: https://alignednews.com/
+servers:
+- url: https://alignednews.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Search
+  description: Full-text search across stories, signals, and reports.
+paths:
+  /search:
+    get:
+      tags:
+      - Search
+      summary: Search Content
+      description: Full-text search across stories, signals, and reports.
+      operationId: searchContent
+      parameters:
+      - name: q
+        in: query
+        description: Search query (minimum 2 characters).
+        required: true
+        schema:
+          type: string
+          minLength: 2
+      - name: limit
+        in: query
+        description: Maximum results per content type.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 10
+      responses:
+        '200':
+          description: Search results grouped by content type.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Report:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        summary:
+          type: string
+        content:
+          type: string
+          description: Full report content. Returned by single-report responses.
+        tags:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
+    Story:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        slug:
+          type: string
+        section:
+          type: string
+        summary:
+          type: string
+        body:
+          type: string
+          description: Full story body. Returned by single-story responses.
+        url:
+          type: string
+          format: uri
+        tags:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
+    Signal:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        badge:
+          type: string
+          enum:
+          - bullish
+          - caution
+          - critical
+          - signal
+          - interview
+          - vc
+          - action
+        summary:
+          type: string
+        analysis:
+          type: string
+          description: Full editorial analysis. Returned by single-signal responses.
+        relatedStories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Story'
+        sourceUrl:
+          type: string
+          format: uri
+        publishedAt:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+    SearchResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: object
+          properties:
+            stories:
+              type: array
+              items:
+                $ref: '#/components/schemas/Story'
+            signals:
+              type: array
+              items:
+                $ref: '#/components/schemas/Signal'
+            reports:
+              type: array
+              items:
+                $ref: '#/components/schemas/Report'
+  responses:
+    Unauthorized:
+      description: API key missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: alnw_*
+      description: API key issued from https://alignednews.com/account, presented as Authorization Bearer alnw_...

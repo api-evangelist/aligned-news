@@ -1,0 +1,227 @@
+openapi: 3.1.0
+info:
+  title: Aligned News REST Bundles Signals API
+  description: 'Read-only REST API for the Aligned News AI intelligence platform.
+
+
+    The API exposes Aligned News'' Stories, Signals, Reports, Bundles, the
+
+    section-grouped news feed, and full-text search. All endpoints require an
+
+    API key passed as `Authorization: Bearer alnw_...`. API keys are issued to
+
+    Pro and Enterprise subscribers from their account page at
+
+    https://alignednews.com/account.
+
+
+    Note: this specification was reconstructed by inspecting the Aligned News
+
+    web application bundle and the published MCP server reference implementation
+
+    (https://alignednews.com/mcp-server.ts). The provider does not currently
+
+    publish a machine-readable API description.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Aligned News
+    url: https://alignednews.com/developers
+  license:
+    name: Aligned News Terms of Service
+    url: https://alignednews.com/
+servers:
+- url: https://alignednews.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Signals
+  description: Early pattern detections with editorial badges.
+paths:
+  /signals:
+    get:
+      tags:
+      - Signals
+      summary: List Signals
+      description: List recent AI signals (early pattern detections from monitored accounts), optionally filtered by badge type.
+      operationId: listSignals
+      parameters:
+      - name: badge
+        in: query
+        description: Filter by badge type.
+        required: false
+        schema:
+          type: string
+          enum:
+          - bullish
+          - caution
+          - critical
+          - signal
+          - interview
+          - vc
+          - action
+      - name: limit
+        in: query
+        description: Maximum number of signals to return (default 50, max 200).
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 200
+          default: 50
+      responses:
+        '200':
+          description: A list of signals.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /signals/{id}:
+    get:
+      tags:
+      - Signals
+      summary: Get Signal
+      description: Retrieve a single signal by ID with full analysis and related stories.
+      operationId: getSignal
+      parameters:
+      - $ref: '#/components/parameters/SignalId'
+      responses:
+        '200':
+          description: A single signal.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Story:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        slug:
+          type: string
+        section:
+          type: string
+        summary:
+          type: string
+        body:
+          type: string
+          description: Full story body. Returned by single-story responses.
+        url:
+          type: string
+          format: uri
+        tags:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
+    SignalResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/Signal'
+    Signal:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        badge:
+          type: string
+          enum:
+          - bullish
+          - caution
+          - critical
+          - signal
+          - interview
+          - vc
+          - action
+        summary:
+          type: string
+        analysis:
+          type: string
+          description: Full editorial analysis. Returned by single-signal responses.
+        relatedStories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Story'
+        sourceUrl:
+          type: string
+          format: uri
+        publishedAt:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+    SignalListResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Signal'
+  parameters:
+    SignalId:
+      name: id
+      in: path
+      required: true
+      description: Signal UUID.
+      schema:
+        type: string
+        format: uuid
+  responses:
+    Unauthorized:
+      description: API key missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: alnw_*
+      description: API key issued from https://alignednews.com/account, presented as Authorization Bearer alnw_...

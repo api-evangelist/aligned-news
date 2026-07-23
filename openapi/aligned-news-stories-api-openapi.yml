@@ -1,0 +1,192 @@
+openapi: 3.1.0
+info:
+  title: Aligned News REST Bundles Stories API
+  description: 'Read-only REST API for the Aligned News AI intelligence platform.
+
+
+    The API exposes Aligned News'' Stories, Signals, Reports, Bundles, the
+
+    section-grouped news feed, and full-text search. All endpoints require an
+
+    API key passed as `Authorization: Bearer alnw_...`. API keys are issued to
+
+    Pro and Enterprise subscribers from their account page at
+
+    https://alignednews.com/account.
+
+
+    Note: this specification was reconstructed by inspecting the Aligned News
+
+    web application bundle and the published MCP server reference implementation
+
+    (https://alignednews.com/mcp-server.ts). The provider does not currently
+
+    publish a machine-readable API description.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Aligned News
+    url: https://alignednews.com/developers
+  license:
+    name: Aligned News Terms of Service
+    url: https://alignednews.com/
+servers:
+- url: https://alignednews.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Stories
+  description: AI news stories curated and synthesized from monitored accounts.
+paths:
+  /stories:
+    get:
+      tags:
+      - Stories
+      summary: List Stories
+      description: List recent AI news stories, optionally filtered by section or tag.
+      operationId: listStories
+      parameters:
+      - name: section
+        in: query
+        description: Filter by section slug.
+        required: false
+        schema:
+          type: string
+      - name: tag
+        in: query
+        description: Filter by tag.
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of stories to return (default 20, max 100).
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 20
+      responses:
+        '200':
+          description: A list of stories.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoryListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /stories/{id}:
+    get:
+      tags:
+      - Stories
+      summary: Get Story
+      description: Retrieve a single story by ID, including the full body content.
+      operationId: getStory
+      parameters:
+      - $ref: '#/components/parameters/StoryId'
+      responses:
+        '200':
+          description: A single story.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoryResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Story:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        slug:
+          type: string
+        section:
+          type: string
+        summary:
+          type: string
+        body:
+          type: string
+          description: Full story body. Returned by single-story responses.
+        url:
+          type: string
+          format: uri
+        tags:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
+    StoryListResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Story'
+    StoryResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/Story'
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+  parameters:
+    StoryId:
+      name: id
+      in: path
+      required: true
+      description: Story UUID.
+      schema:
+        type: string
+        format: uuid
+  responses:
+    Unauthorized:
+      description: API key missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: alnw_*
+      description: API key issued from https://alignednews.com/account, presented as Authorization Bearer alnw_...

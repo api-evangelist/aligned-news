@@ -1,0 +1,197 @@
+openapi: 3.1.0
+info:
+  title: Aligned News REST Bundles API
+  description: 'Read-only REST API for the Aligned News AI intelligence platform.
+
+
+    The API exposes Aligned News'' Stories, Signals, Reports, Bundles, the
+
+    section-grouped news feed, and full-text search. All endpoints require an
+
+    API key passed as `Authorization: Bearer alnw_...`. API keys are issued to
+
+    Pro and Enterprise subscribers from their account page at
+
+    https://alignednews.com/account.
+
+
+    Note: this specification was reconstructed by inspecting the Aligned News
+
+    web application bundle and the published MCP server reference implementation
+
+    (https://alignednews.com/mcp-server.ts). The provider does not currently
+
+    publish a machine-readable API description.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Aligned News
+    url: https://alignednews.com/developers
+  license:
+    name: Aligned News Terms of Service
+    url: https://alignednews.com/
+servers:
+- url: https://alignednews.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Bundles
+  description: Curated groupings of related stories around themes.
+paths:
+  /bundles:
+    get:
+      tags:
+      - Bundles
+      summary: List Bundles
+      description: List bundles, each grouping a set of related stories around a theme.
+      operationId: listBundles
+      parameters:
+      - name: limit
+        in: query
+        description: Maximum number of bundles to return.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 20
+      responses:
+        '200':
+          description: A list of bundles.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BundleListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /bundles/{id}:
+    get:
+      tags:
+      - Bundles
+      summary: Get Bundle
+      description: Retrieve a single bundle by ID, including all member stories.
+      operationId: getBundle
+      parameters:
+      - $ref: '#/components/parameters/BundleId'
+      responses:
+        '200':
+          description: A single bundle.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BundleResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Story:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        slug:
+          type: string
+        section:
+          type: string
+        summary:
+          type: string
+        body:
+          type: string
+          description: Full story body. Returned by single-story responses.
+        url:
+          type: string
+          format: uri
+        tags:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
+    BundleResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/Bundle'
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+    Bundle:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        summary:
+          type: string
+        stories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Story'
+        publishedAt:
+          type: string
+          format: date-time
+    BundleListResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bundle'
+  responses:
+    Unauthorized:
+      description: API key missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    BundleId:
+      name: id
+      in: path
+      required: true
+      description: Bundle UUID.
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: alnw_*
+      description: API key issued from https://alignednews.com/account, presented as Authorization Bearer alnw_...

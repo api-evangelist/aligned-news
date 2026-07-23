@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: Aligned News REST Bundles Sections API
+  description: 'Read-only REST API for the Aligned News AI intelligence platform.
+
+
+    The API exposes Aligned News'' Stories, Signals, Reports, Bundles, the
+
+    section-grouped news feed, and full-text search. All endpoints require an
+
+    API key passed as `Authorization: Bearer alnw_...`. API keys are issued to
+
+    Pro and Enterprise subscribers from their account page at
+
+    https://alignednews.com/account.
+
+
+    Note: this specification was reconstructed by inspecting the Aligned News
+
+    web application bundle and the published MCP server reference implementation
+
+    (https://alignednews.com/mcp-server.ts). The provider does not currently
+
+    publish a machine-readable API description.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Aligned News
+    url: https://alignednews.com/developers
+  license:
+    name: Aligned News Terms of Service
+    url: https://alignednews.com/
+servers:
+- url: https://alignednews.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Sections
+  description: Topical sections used to organize stories.
+paths:
+  /sections:
+    get:
+      tags:
+      - Sections
+      summary: List Sections
+      description: List active news sections used to organize stories.
+      operationId: listSections
+      responses:
+        '200':
+          description: A list of sections.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SectionListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Section:
+      type: object
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    SectionListResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Section'
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+  responses:
+    Unauthorized:
+      description: API key missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: alnw_*
+      description: API key issued from https://alignednews.com/account, presented as Authorization Bearer alnw_...
