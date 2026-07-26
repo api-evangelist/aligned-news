@@ -5,11 +5,24 @@ description: >-
   lists tracking 100,000+ accounts in AI, tech, and science, and publishes Stories, Signals, Reports, and Bundles via
   web, REST API, and a downloadable MCP server for AI tools like Claude, Cursor, and Windsurf.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+    - plans
+    - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/aligned-news.png
 created: '2026-05-06'
-modified: '2026-05-19'
+modified: '2026-07-25'
 url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 tags:
@@ -20,62 +33,14 @@ tags:
   - Signals
 url-source: https://alignednews.com/
 apis:
-  - aid: aligned-news:aligned-news
-    name: Aligned News
-    description: >-
-      Consumer-facing AI news intelligence platform delivering Stories, Signals, Reports, and Bundles synthesized from
-      63 curated X lists tracking 100,000+ accounts across AI, technology, and science.
-    humanURL: https://alignednews.com/
-    tags:
-      - AI
-      - News
-      - Intelligence
-    properties:
-      - type: Documentation
-        url: https://alignednews.com/how-it-works
-      - type: Pricing
-        url: https://alignednews.com/pricing
-      - type: Signup
-        url: https://alignednews.com/getting-started
-  - aid: aligned-news:aligned-news-rest-api
-    name: Aligned News REST API
-    description: >-
-      Read-only REST API for Aligned News content. Lets developers and AI agents fetch Stories, Signals, Reports,
-      Bundles, the section-grouped news feed, and run full-text search across all content. All endpoints require an API
-      key passed as Authorization Bearer alnw_... and are reserved for Pro subscribers.
-    humanURL: https://alignednews.com/developers
-    baseURL: https://alignednews.com/v1
-    tags:
-      - AI
-      - News
-      - Intelligence
-      - REST
-      - Signals
-      - Search
-    properties:
-      - type: Documentation
-        url: https://alignednews.com/developers
-      - type: Authentication
-        url: https://alignednews.com/account
-      - type: Pricing
-        url: https://alignednews.com/pricing
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/openapi/aligned-news-openapi.yml
-      - type: Plans
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
-      - type: RateLimits
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
-      - type: FinOps
-        url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
   - aid: aligned-news:aligned-news-mcp-server
     name: Aligned News MCP Server
     description: >-
-      Reference Model Context Protocol server distributed as a single TypeScript file (mcp-server.ts) that proxies the
-      Aligned News REST API to MCP-compatible AI tools like Claude Code, Claude Desktop, Cursor, and Windsurf. Exposes
-      search_news, get_stories, get_story, get_signals, get_signal, get_reports, get_report, and get_sections tools,
-      plus an aligned://news-feed resource. Authenticates with a user-provided ALIGNED_API_KEY (Bearer alnw_...).
+      Reference Model Context Protocol server distributed as a single TypeScript file (mcp-server.ts) that
+      proxies the Aligned News REST API to MCP-compatible AI tools like Claude Code, Claude Desktop, Cursor,
+      and Windsurf. Exposes search_news, get_stories, get_story, get_signals, get_signal, get_reports, get_report,
+      and get_sections tools, plus an aligned://news-feed resource. Authenticates with a user-provided ALIGNED_API_KEY
+      (Bearer alnw_...).
     humanURL: https://alignednews.com/developers
     baseURL: https://alignednews.com/v1
     tags:
@@ -90,6 +55,181 @@ apis:
         url: https://alignednews.com/mcp-server.ts
       - type: Authentication
         url: https://alignednews.com/account
+  - aid: aligned-news:aligned-news-bundles-api
+    name: Aligned News Bundles API
+    description: Curated groupings of related stories around themes.
+    humanURL: https://alignednews.com/
+    baseURL: https://alignednews.com/v1
+    tags:
+      - Bundles
+    properties:
+      - type: OpenAPI
+        url: openapi/aligned-news-bundles-api-openapi.yml
+      - type: Documentation
+        url: https://alignednews.com/developers
+      - type: Authentication
+        url: https://alignednews.com/account
+      - type: Pricing
+        url: https://alignednews.com/pricing
+      - type: Plans
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
+      - type: RateLimits
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
+      - type: FinOps
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
+  - aid: aligned-news:aligned-news-news-feed-api
+    name: Aligned News News Feed API
+    description: All current stories grouped by section.
+    humanURL: https://alignednews.com/
+    baseURL: https://alignednews.com/v1
+    tags:
+      - News Feed
+    properties:
+      - type: OpenAPI
+        url: openapi/aligned-news-news-feed-api-openapi.yml
+      - type: Documentation
+        url: https://alignednews.com/developers
+      - type: Authentication
+        url: https://alignednews.com/account
+      - type: Pricing
+        url: https://alignednews.com/pricing
+      - type: Plans
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
+      - type: RateLimits
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
+      - type: FinOps
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
+  - aid: aligned-news:aligned-news-reports-api
+    name: Aligned News Reports API
+    description: Trend deep-dives and longer-form analysis.
+    humanURL: https://alignednews.com/
+    baseURL: https://alignednews.com/v1
+    tags:
+      - Reports
+    properties:
+      - type: OpenAPI
+        url: openapi/aligned-news-reports-api-openapi.yml
+      - type: Documentation
+        url: https://alignednews.com/developers
+      - type: Authentication
+        url: https://alignednews.com/account
+      - type: Pricing
+        url: https://alignednews.com/pricing
+      - type: Plans
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
+      - type: RateLimits
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
+      - type: FinOps
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
+  - aid: aligned-news:aligned-news-search-api
+    name: Aligned News Search API
+    description: Full-text search across stories, signals, and reports.
+    humanURL: https://alignednews.com/
+    baseURL: https://alignednews.com/v1
+    tags:
+      - Search
+    properties:
+      - type: OpenAPI
+        url: openapi/aligned-news-search-api-openapi.yml
+      - type: Documentation
+        url: https://alignednews.com/developers
+      - type: Authentication
+        url: https://alignednews.com/account
+      - type: Pricing
+        url: https://alignednews.com/pricing
+      - type: Plans
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
+      - type: RateLimits
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
+      - type: FinOps
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
+  - aid: aligned-news:aligned-news-sections-api
+    name: Aligned News Sections API
+    description: Topical sections used to organize stories.
+    humanURL: https://alignednews.com/
+    baseURL: https://alignednews.com/v1
+    tags:
+      - Sections
+    properties:
+      - type: OpenAPI
+        url: openapi/aligned-news-sections-api-openapi.yml
+      - type: Documentation
+        url: https://alignednews.com/developers
+      - type: Authentication
+        url: https://alignednews.com/account
+      - type: Pricing
+        url: https://alignednews.com/pricing
+      - type: Plans
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
+      - type: RateLimits
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
+      - type: FinOps
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
+  - aid: aligned-news:aligned-news-signals-api
+    name: Aligned News Signals API
+    description: Early pattern detections with editorial badges.
+    humanURL: https://alignednews.com/
+    baseURL: https://alignednews.com/v1
+    tags:
+      - Signals
+    properties:
+      - type: OpenAPI
+        url: openapi/aligned-news-signals-api-openapi.yml
+      - type: Documentation
+        url: https://alignednews.com/developers
+      - type: Authentication
+        url: https://alignednews.com/account
+      - type: Pricing
+        url: https://alignednews.com/pricing
+      - type: Plans
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
+      - type: RateLimits
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
+      - type: FinOps
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
+  - aid: aligned-news:aligned-news-stories-api
+    name: Aligned News Stories API
+    description: AI news stories curated and synthesized from monitored accounts.
+    humanURL: https://alignednews.com/
+    baseURL: https://alignednews.com/v1
+    tags:
+      - Stories
+    properties:
+      - type: OpenAPI
+        url: openapi/aligned-news-stories-api-openapi.yml
+      - type: Documentation
+        url: https://alignednews.com/developers
+      - type: Authentication
+        url: https://alignednews.com/account
+      - type: Pricing
+        url: https://alignednews.com/pricing
+      - type: Plans
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml
+      - type: RateLimits
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml
+      - type: FinOps
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

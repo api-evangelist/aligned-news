@@ -25,11 +25,6 @@ Aligned News is an AI-native intelligence and news platform that synthesizes AI-
 
 ## APIs
 
-### Aligned News
-
-Consumer-facing AI news intelligence platform delivering Stories, Signals, Reports, and Bundles synthesized from 63 curated X lists tracking 100,000+ accounts across AI, technology, and science.
-
-- **Human URL:** [https://alignednews.com/](https://alignednews.com/)
 
 #### Tags
 
