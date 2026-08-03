@@ -1,0 +1,26 @@
+{
+  "provider": "aligned-news",
+  "sources": [
+    "aligned-news-bundles-api-openapi.yml",
+    "aligned-news-news-feed-api-openapi.yml",
+    "aligned-news-reports-api-openapi.yml",
+    "aligned-news-search-api-openapi.yml",
+    "aligned-news-sections-api-openapi.yml",
+    "aligned-news-signals-api-openapi.yml",
+    "aligned-news-stories-api-openapi.yml"
+  ],
+  "outputs": [
+    "aligned-news-bundles-api-openapi.yml",
+    "aligned-news-news-feed-api-openapi.yml",
+    "aligned-news-reports-api-openapi.yml",
+    "aligned-news-search-api-openapi.yml",
+    "aligned-news-sections-api-openapi.yml",
+    "aligned-news-signals-api-openapi.yml",
+    "aligned-news-stories-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
