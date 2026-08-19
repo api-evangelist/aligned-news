@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aligned News REST Bundles Stories API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Stories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/stories",
+            "params": [
+              {
+                "name": "section",
+                "value": "",
+                "type": "query",
+                "description": "Filter by section slug."
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "Filter by tag."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of stories to return (default 20, max 100)."
+              }
+            ]
+          },
+          "docs": "List recent AI news stories, optionally filtered by section or tag."
+        },
+        {
+          "info": {
+            "name": "Get Story",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/stories/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Story UUID."
+              }
+            ]
+          },
+          "docs": "Retrieve a single story by ID, including the full body content."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

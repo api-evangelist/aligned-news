@@ -1,0 +1,179 @@
+{
+  "item": [
+    {
+      "id": "2dec09cc-9e5f-401d-9697-b6e3477803d4",
+      "name": "News Feed",
+      "description": {
+        "content": "All current stories grouped by section.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba50adde-18cd-4712-a9ba-654ea84aed74",
+          "name": "Get News Feed",
+          "request": {
+            "name": "Get News Feed",
+            "description": {
+              "content": "Retrieve all current stories grouped by section.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news-feed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of stories per section."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b957b2f-0fd8-4d54-85c6-5b427b713f28",
+              "name": "Stories grouped by section.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news-feed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"section\": {\n        \"slug\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\"\n      },\n      \"stories\": [\n        {\n          \"id\": \"d7e8acd3-e68f-c995-b1af-a82ee1da3510\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"http://dgLYM.whuTRexcVCYQw3982EJaz0x.AD0ouPF,R79IKsrNBIdu9milDG-Ednra--uDNxx7JZcDr3dbL\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2024-01-03T18:27:18.724Z\"\n        },\n        {\n          \"id\": \"3fd3f701-c525-6cbd-f18b-d3902dcbd1ee\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://pQBhnkkljPm.ooiKb\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1961-02-03T22:19:21.581Z\"\n        }\n      ]\n    },\n    {\n      \"section\": {\n        \"slug\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\"\n      },\n      \"stories\": [\n        {\n          \"id\": \"4619dfb6-924e-bb66-f55d-3c2e2b10da70\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"http://yOHVWZXCfLMeXgYyTZNoLDjnJvF.uyjYKJsc8K+WtVqwoM0pRVCHjj1\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2013-01-11T16:51:55.472Z\"\n        },\n        {\n          \"id\": \"c25ca4a8-117e-3925-7182-175ea3e9c9ed\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://GaBTyhcofGcCefckxySNb.qhtiQnAo5Q1OB2RBq8OuFz\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2018-03-30T21:50:06.901Z\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0de9a4f5-c010-4ffd-9854-bf6924a82679",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news-feed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://alignednews.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ed5475a0-81e6-47fb-a874-1ee9316addf4",
+    "name": "Aligned News REST Bundles News Feed API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read-only REST API for the Aligned News AI intelligence platform.\n\nThe API exposes Aligned News' Stories, Signals, Reports, Bundles, the\nsection-grouped news feed, and full-text search. All endpoints require an\nAPI key passed as `Authorization: Bearer alnw_...`. API keys are issued to\nPro and Enterprise subscribers from their account page at\nhttps://alignednews.com/account.\n\nNote: this specification was reconstructed by inspecting the Aligned News\nweb application bundle and the published MCP server reference implementation\n(https://alignednews.com/mcp-server.ts). The provider does not currently\npublish a machine-readable API description.\n\n\nContact Support:\n Name: Aligned News",
+      "type": "text/plain"
+    }
+  }
+}

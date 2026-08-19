@@ -1,0 +1,162 @@
+{
+  "item": [
+    {
+      "id": "0d735924-9afa-4e3c-ae93-e426ec3613d0",
+      "name": "Sections",
+      "description": {
+        "content": "Topical sections used to organize stories.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a4077b06-c776-492f-b436-a1e1e65da8e8",
+          "name": "List Sections",
+          "request": {
+            "name": "List Sections",
+            "description": {
+              "content": "List active news sections used to organize stories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64deec12-16fb-4f5a-becd-e8a4525d1ce8",
+              "name": "A list of sections.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"slug\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"slug\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b684c4b4-9aa9-4d4b-a374-3be318ab3ad0",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://alignednews.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d7d55558-21ea-41e2-bbba-196bcde8e194",
+    "name": "Aligned News REST Bundles Sections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read-only REST API for the Aligned News AI intelligence platform.\n\nThe API exposes Aligned News' Stories, Signals, Reports, Bundles, the\nsection-grouped news feed, and full-text search. All endpoints require an\nAPI key passed as `Authorization: Bearer alnw_...`. API keys are issued to\nPro and Enterprise subscribers from their account page at\nhttps://alignednews.com/account.\n\nNote: this specification was reconstructed by inspecting the Aligned News\nweb application bundle and the published MCP server reference implementation\n(https://alignednews.com/mcp-server.ts). The provider does not currently\npublish a machine-readable API description.\n\n\nContact Support:\n Name: Aligned News",
+      "type": "text/plain"
+    }
+  }
+}

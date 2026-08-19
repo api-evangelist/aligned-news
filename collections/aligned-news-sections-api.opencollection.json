@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aligned News REST Bundles Sections API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Sections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/sections"
+          },
+          "docs": "List active news sections used to organize stories."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

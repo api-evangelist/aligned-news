@@ -1,0 +1,407 @@
+{
+  "item": [
+    {
+      "id": "3f3eda2d-af02-49a9-b1b8-55f8c12a21b5",
+      "name": "Stories",
+      "description": {
+        "content": "AI news stories curated and synthesized from monitored accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e9d70a5a-f8a3-456f-807f-e3338374d7cf",
+          "name": "List Stories",
+          "request": {
+            "name": "List Stories",
+            "description": {
+              "content": "List recent AI news stories, optionally filtered by section or tag.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "section",
+                  "value": "<string>",
+                  "description": "Filter by section slug."
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>",
+                  "description": "Filter by tag."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of stories to return (default 20, max 100)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59845e3a-8c8e-4b49-be82-62730f972191",
+              "name": "A list of stories.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "section",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"f5c10ab1-5109-7bf0-7f1c-8f7584badfdb\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"section\": \"string\",\n      \"summary\": \"string\",\n      \"body\": \"string\",\n      \"url\": \"http://smTljVBWXhJICEjJvH.uuYVwB2C8VxaHkTD5N\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"publishedAt\": \"1960-01-30T18:56:22.494Z\"\n    },\n    {\n      \"id\": \"4d1e404a-eb4a-51fa-c94e-739112c0be6d\",\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"section\": \"string\",\n      \"summary\": \"string\",\n      \"body\": \"string\",\n      \"url\": \"https://vQRwRXyVorVZflmXYFhWxhdqH.yjiyjRy,n4t-MdpzC.IH1rUT7..pQV43aCACeE6SicswyOy0LZ6aIsmM58\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"publishedAt\": \"2014-04-01T06:31:56.847Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfe04a53-516b-41d8-b585-6c290bd1b5fd",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "section",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfebebd0-82be-4833-b39b-4101bb5c9b65",
+          "name": "Get Story",
+          "request": {
+            "name": "Get Story",
+            "description": {
+              "content": "Retrieve a single story by ID, including the full body content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stories",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Story UUID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92d75b8c-24fd-4b2f-a57a-02a74a45b6a2",
+              "name": "A single story.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Story UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"8a7e958d-f0ba-5a6b-a454-58e0c73abed3\",\n    \"title\": \"string\",\n    \"slug\": \"string\",\n    \"section\": \"string\",\n    \"summary\": \"string\",\n    \"body\": \"string\",\n    \"url\": \"http://DwGacNkPRMikEMNBHnqwDIQtTzoEhoSe.cuqacysE0gjnCpIbZcdRI5EgbVjF1.pr,d,aLFEfg\",\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"publishedAt\": \"1956-08-12T02:02:34.344Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1876fa71-871a-4ef8-a24d-9156f42579ad",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Story UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e549c93-962c-4f14-9b5a-0fc79176ca0e",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Story UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://alignednews.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aa2050b1-f3d9-4974-a8af-eca73d2a022a",
+    "name": "Aligned News REST Bundles Stories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read-only REST API for the Aligned News AI intelligence platform.\n\nThe API exposes Aligned News' Stories, Signals, Reports, Bundles, the\nsection-grouped news feed, and full-text search. All endpoints require an\nAPI key passed as `Authorization: Bearer alnw_...`. API keys are issued to\nPro and Enterprise subscribers from their account page at\nhttps://alignednews.com/account.\n\nNote: this specification was reconstructed by inspecting the Aligned News\nweb application bundle and the published MCP server reference implementation\n(https://alignednews.com/mcp-server.ts). The provider does not currently\npublish a machine-readable API description.\n\n\nContact Support:\n Name: Aligned News",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aligned News REST Bundles Signals API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Signals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Signals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/signals",
+            "params": [
+              {
+                "name": "badge",
+                "value": "",
+                "type": "query",
+                "description": "Filter by badge type."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of signals to return (default 50, max 200)."
+              }
+            ]
+          },
+          "docs": "List recent AI signals (early pattern detections from monitored accounts), optionally filtered by badge type."
+        },
+        {
+          "info": {
+            "name": "Get Signal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/signals/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Signal UUID."
+              }
+            ]
+          },
+          "docs": "Retrieve a single signal by ID with full analysis and related stories."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

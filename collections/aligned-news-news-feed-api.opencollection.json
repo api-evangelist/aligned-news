@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aligned News REST Bundles News Feed API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "News Feed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get News Feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/news-feed",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of stories per section."
+              }
+            ]
+          },
+          "docs": "Retrieve all current stories grouped by section."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aligned News REST Bundles API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bundles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bundles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/bundles",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bundles to return."
+              }
+            ]
+          },
+          "docs": "List bundles, each grouping a set of related stories around a theme."
+        },
+        {
+          "info": {
+            "name": "Get Bundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://alignednews.com/v1/bundles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Bundle UUID."
+              }
+            ]
+          },
+          "docs": "Retrieve a single bundle by ID, including all member stories."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

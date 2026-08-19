@@ -1,0 +1,245 @@
+{
+  "item": [
+    {
+      "id": "d06d2c41-6aa3-4911-833b-782461caf0de",
+      "name": "Search",
+      "description": {
+        "content": "Full-text search across stories, signals, and reports.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1003f07-2839-4ab5-99e6-225d6354148e",
+          "name": "Search Content",
+          "request": {
+            "name": "Search Content",
+            "description": {
+              "content": "Full-text search across stories, signals, and reports.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Search query (minimum 2 characters)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Maximum results per content type."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd42d3fc-89f4-4133-a754-5222febd61a5",
+              "name": "Search results grouped by content type.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"stories\": [\n      {\n        \"id\": \"2524d722-eaee-79f2-ed73-6291b794edb6\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"http://Nk.fudqdWmDDOJPxRA.Xem0pCygkTpCs1HCTFzeiFOOE6vVDq39g+pP2g+zVf3ZnLOAn\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1962-09-08T23:49:43.631Z\"\n      },\n      {\n        \"id\": \"4c75f3eb-d692-7b89-d2a0-034b0116ab87\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"https://eGNaNTJHeVxUtoMYjcP.alsjboupzDyVeeZhc7kR+cUjfrrNhkMiEUpIEarvwIjY\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1946-08-19T14:39:09.558Z\"\n      }\n    ],\n    \"signals\": [\n      {\n        \"id\": \"43e98442-4de5-9f03-d4fd-b58adcc6e017\",\n        \"title\": \"string\",\n        \"badge\": \"bullish\",\n        \"summary\": \"string\",\n        \"analysis\": \"string\",\n        \"relatedStories\": [\n          {\n            \"id\": \"66f981e8-7983-063c-ec37-9d23729d933f\",\n            \"title\": \"string\",\n            \"slug\": \"string\",\n            \"section\": \"string\",\n            \"summary\": \"string\",\n            \"body\": \"string\",\n            \"url\": \"https://sbbCkQTtOBjNwmKrwvJtKjSKe.ztpvt7PYnT\",\n            \"tags\": [\n              \"string\",\n              \"string\"\n            ],\n            \"publishedAt\": \"1969-06-12T15:17:18.566Z\"\n          },\n          {\n            \"id\": \"02f8133c-779d-6a64-afae-a643da9f8648\",\n            \"title\": \"string\",\n            \"slug\": \"string\",\n            \"section\": \"string\",\n            \"summary\": \"string\",\n            \"body\": \"string\",\n            \"url\": \"http://zMxAAIcjIHuIOAfVMXOIHvH.zkwEbLj6uOetEv+rfSbVlPekK,ThC4mCMPsWP.S9pG0glYxIhYw,wFlV\",\n            \"tags\": [\n              \"string\",\n              \"string\"\n            ],\n            \"publishedAt\": \"1964-07-08T09:50:41.182Z\"\n          }\n        ],\n        \"sourceUrl\": \"http://pEwWTAtewvGQPQfqAsErdBRdMFU.negdKib1lUFAY1yenXAuBv1Fd,0614I08OIsLqyZVFsMob4QFKOeUXgC1otoQ+rJDKdFChP4I\",\n        \"publishedAt\": \"1990-08-20T14:49:06.804Z\"\n      },\n      {\n        \"id\": \"a1916b02-b0fa-25a7-8e09-946d10b79904\",\n        \"title\": \"string\",\n        \"badge\": \"vc\",\n        \"summary\": \"string\",\n        \"analysis\": \"string\",\n        \"relatedStories\": [\n          {\n            \"id\": \"7c0e262e-6d19-58f0-909e-80816da8af67\",\n            \"title\": \"string\",\n            \"slug\": \"string\",\n            \"section\": \"string\",\n            \"summary\": \"string\",\n            \"body\": \"string\",\n            \"url\": \"https://azHpbiiPrZbPYHpaxBojBAtUvzEEcJs.oetrGZp2mpkPk7TSm2ynAnqq-LRs,b2\",\n            \"tags\": [\n              \"string\",\n              \"string\"\n            ],\n            \"publishedAt\": \"1995-05-22T13:59:45.925Z\"\n          },\n          {\n            \"id\": \"86f7c852-2c09-e73f-1a3a-febb7e6982e9\",\n            \"title\": \"string\",\n            \"slug\": \"string\",\n            \"section\": \"string\",\n            \"summary\": \"string\",\n            \"body\": \"string\",\n            \"url\": \"https://nDgPtusiWzgIfSYZUTAfZjPudBTfLl.rpltms1OXCqLKWg4z-sg82X4Tnjeb12Yx6AQQp6eUQ,+yD-mkMG5IKqJtmN5nNuDpW\",\n            \"tags\": [\n              \"string\",\n              \"string\"\n            ],\n            \"publishedAt\": \"2008-01-10T17:08:36.489Z\"\n          }\n        ],\n        \"sourceUrl\": \"http://AEoEaXJJJcrUrREOHgHHzqORc.ewrxnxJyaYNL9gThbyxY6a2hMcFolOPnvVQqLSUOrDn\",\n        \"publishedAt\": \"1970-10-18T09:09:31.187Z\"\n      }\n    ],\n    \"reports\": [\n      {\n        \"id\": \"933ef80a-3eb4-2ab0-e489-87797e7e87b1\",\n        \"title\": \"string\",\n        \"summary\": \"string\",\n        \"content\": \"string\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1971-07-17T11:21:28.415Z\"\n      },\n      {\n        \"id\": \"c8c160cf-93a3-683d-b672-7c155b518840\",\n        \"title\": \"string\",\n        \"summary\": \"string\",\n        \"content\": \"string\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1960-04-23T19:41:12.008Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d703400-c7cb-4397-b869-78d4802b3633",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2b60222-f2a5-4942-aaa8-5168b3b42fa6",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://alignednews.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a3d1580c-c887-4be5-bc49-023e36ede1c9",
+    "name": "Aligned News REST Bundles Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read-only REST API for the Aligned News AI intelligence platform.\n\nThe API exposes Aligned News' Stories, Signals, Reports, Bundles, the\nsection-grouped news feed, and full-text search. All endpoints require an\nAPI key passed as `Authorization: Bearer alnw_...`. API keys are issued to\nPro and Enterprise subscribers from their account page at\nhttps://alignednews.com/account.\n\nNote: this specification was reconstructed by inspecting the Aligned News\nweb application bundle and the published MCP server reference implementation\n(https://alignednews.com/mcp-server.ts). The provider does not currently\npublish a machine-readable API description.\n\n\nContact Support:\n Name: Aligned News",
+      "type": "text/plain"
+    }
+  }
+}

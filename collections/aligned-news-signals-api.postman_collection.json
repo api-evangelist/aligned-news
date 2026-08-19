@@ -1,0 +1,393 @@
+{
+  "item": [
+    {
+      "id": "abb7b5ba-2a9d-4339-80da-38679cd1765d",
+      "name": "Signals",
+      "description": {
+        "content": "Early pattern detections with editorial badges.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dcaf27fc-06d7-4d4d-a5a0-0c70c2edb759",
+          "name": "List Signals",
+          "request": {
+            "name": "List Signals",
+            "description": {
+              "content": "List recent AI signals (early pattern detections from monitored accounts), optionally filtered by badge type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "signals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "badge",
+                  "value": "<string>",
+                  "description": "Filter by badge type."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of signals to return (default 50, max 200)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dbc4e1a-d20b-4591-acb6-b75003e38831",
+              "name": "A list of signals.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "signals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "badge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"417c6096-38e9-95fe-8c13-d488284cefe7\",\n      \"title\": \"string\",\n      \"badge\": \"critical\",\n      \"summary\": \"string\",\n      \"analysis\": \"string\",\n      \"relatedStories\": [\n        {\n          \"id\": \"116972d0-7f92-f283-5f40-467dd7a5a5ae\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"http://QtUWOGUzmLrlkTqcOkklsliS.naemQDaDIW3YvNFxDtq-2yAUj9.0ARm2QDpPjoLZCRFZiw-tYz1M8opTy,rO\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1967-03-28T08:23:23.925Z\"\n        },\n        {\n          \"id\": \"f5fa4489-0d59-38cb-3023-832e751eb0f6\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://NBPe.mxgju\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2011-09-21T14:56:23.614Z\"\n        }\n      ],\n      \"sourceUrl\": \"http://Zwj.ozo-cxw,gSc7qKYtYzRsUkVQ,W5XWc4qsH\",\n      \"publishedAt\": \"2015-11-02T14:35:04.500Z\"\n    },\n    {\n      \"id\": \"4db24301-d811-34c6-cc65-d68b03a4cde6\",\n      \"title\": \"string\",\n      \"badge\": \"interview\",\n      \"summary\": \"string\",\n      \"analysis\": \"string\",\n      \"relatedStories\": [\n        {\n          \"id\": \"6ef1f5e1-ecfe-8b72-e074-0c34eeed5db7\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"http://gYSfnqYBTLQmGNubDZlsSmea.svhPqH6g1XMBeha8b9he+rzBCYRc7Rg1.JCtIZq2C3b9yj\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2017-07-25T00:19:43.123Z\"\n        },\n        {\n          \"id\": \"3ddbbc5d-100e-598d-ce20-db4bf31d5914\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"http://ruEAIBamKJAudOSBvSvrmI.hqD,mPciG\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1980-05-29T06:17:50.451Z\"\n        }\n      ],\n      \"sourceUrl\": \"https://OMvFdEVLUFBvZVLsfJzpsiCIdcXu.kszsDCaDnZvRWODNATiuIA-KW3ekHEhCYD,BzCrEt34O2bs\",\n      \"publishedAt\": \"1953-04-19T23:12:23.393Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e9ce8b1-21b5-478b-8dfc-e485e695cc8d",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "signals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "badge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "666c9536-84d1-45f6-b868-ef7d4fed7290",
+          "name": "Get Signal",
+          "request": {
+            "name": "Get Signal",
+            "description": {
+              "content": "Retrieve a single signal by ID with full analysis and related stories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "signals",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Signal UUID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ff09e08-c7d5-45ae-8917-b3064b3730bf",
+              "name": "A single signal.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "signals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Signal UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"4b6c5fec-f830-2f0c-2c2d-e3b0b9bc76a0\",\n    \"title\": \"string\",\n    \"badge\": \"critical\",\n    \"summary\": \"string\",\n    \"analysis\": \"string\",\n    \"relatedStories\": [\n      {\n        \"id\": \"d81c528a-1abd-6c7c-1046-bb1cbc1aa806\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"https://OeAN.fphMZj3IeITCWgOX\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1972-08-26T04:58:46.644Z\"\n      },\n      {\n        \"id\": \"d0013f32-117e-4bd5-2581-0e1433ba9c6e\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"http://UnslGDHOCixfu.pqiI8lCwH05GSmem.ew6LHtmEeaC-HCDqnpA8ujnA\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"2008-06-14T19:40:09.786Z\"\n      }\n    ],\n    \"sourceUrl\": \"https://mCQBBaTFEdIzoojNLisMlNQIOJM.cezamUDF210jlGuMMGB3WWr6dkEyPOkNvI+awE-9vomiddmBe0\",\n    \"publishedAt\": \"1965-01-22T13:15:25.822Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3aed2c4f-ad63-413a-9df4-93d635e45d1a",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "signals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Signal UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c1942fb-6273-4bd3-88a7-fc75a45d2337",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "signals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Signal UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://alignednews.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "76d8e825-9d67-4412-84af-97a340c7299d",
+    "name": "Aligned News REST Bundles Signals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read-only REST API for the Aligned News AI intelligence platform.\n\nThe API exposes Aligned News' Stories, Signals, Reports, Bundles, the\nsection-grouped news feed, and full-text search. All endpoints require an\nAPI key passed as `Authorization: Bearer alnw_...`. API keys are issued to\nPro and Enterprise subscribers from their account page at\nhttps://alignednews.com/account.\n\nNote: this specification was reconstructed by inspecting the Aligned News\nweb application bundle and the published MCP server reference implementation\n(https://alignednews.com/mcp-server.ts). The provider does not currently\npublish a machine-readable API description.\n\n\nContact Support:\n Name: Aligned News",
+      "type": "text/plain"
+    }
+  }
+}

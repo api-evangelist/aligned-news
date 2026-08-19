@@ -1,0 +1,379 @@
+{
+  "item": [
+    {
+      "id": "faf2379f-9fef-4759-9d44-fa3b393731ba",
+      "name": "Bundles",
+      "description": {
+        "content": "Curated groupings of related stories around themes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f00fca43-7bb7-461c-a31b-ae47d446c87e",
+          "name": "List Bundles",
+          "request": {
+            "name": "List Bundles",
+            "description": {
+              "content": "List bundles, each grouping a set of related stories around a theme.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of bundles to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73e9aa01-fcf8-418e-9af0-d3adcf25ea3b",
+              "name": "A list of bundles.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"8038b136-42ad-1099-58e4-8c78e9c11f03\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"stories\": [\n        {\n          \"id\": \"5794ac50-ffa0-9cde-b9fe-5999d188c585\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"http://rrrKJRsKMtyIHFfsIDyGIABvxqg.ykIihZoYQIRDXCqJvBGVHpIfweXreOa8uh,Ujtl.izy\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2015-02-05T12:12:25.136Z\"\n        },\n        {\n          \"id\": \"6ead1683-cf75-56bc-d79e-54c83fc15f2e\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://eXDDOPjhEE.dapvfVDiN-mGtXiKz,h\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"2010-12-29T19:17:50.758Z\"\n        }\n      ],\n      \"publishedAt\": \"1989-08-19T14:44:00.153Z\"\n    },\n    {\n      \"id\": \"0829d48f-33c9-f542-f863-2a72c15efcee\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"stories\": [\n        {\n          \"id\": \"947ab0e1-b973-ec5f-0efd-e2604da0fb3b\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://oWNXetDNyDnMLNv.dcHh6Oa7mUgZKglIxd2d33,PVz1JtktuFWS6kBoFdhCT0pATEN+VIDOgreQMqA\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1980-05-17T21:26:07.772Z\"\n        },\n        {\n          \"id\": \"c4e8deb2-1acd-4785-bd0d-7dc9c078ae37\",\n          \"title\": \"string\",\n          \"slug\": \"string\",\n          \"section\": \"string\",\n          \"summary\": \"string\",\n          \"body\": \"string\",\n          \"url\": \"https://oSyvHZUJqAwlWQykxcqckSwKsCytiuWio.civigCVA6FxfnzrE1lDCHRnjh3+7hiC4jWmA4XH5MuzSHgimotbp3TYrfet3Hl\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"publishedAt\": \"1993-07-15T12:26:48.318Z\"\n        }\n      ],\n      \"publishedAt\": \"2024-11-11T04:00:08.732Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59cf1b25-9127-4b6e-bf87-1ef84480d092",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08d8345a-dea4-4818-b6ba-fa5ef655df03",
+          "name": "Get Bundle",
+          "request": {
+            "name": "Get Bundle",
+            "description": {
+              "content": "Retrieve a single bundle by ID, including all member stories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Bundle UUID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c590364d-e5cd-45e6-98cc-78cc7bf1bbc6",
+              "name": "A single bundle.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Bundle UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"37eaadc9-ab66-c7bf-c534-0ba57d8b4a43\",\n    \"title\": \"string\",\n    \"summary\": \"string\",\n    \"stories\": [\n      {\n        \"id\": \"7cebfd2d-1830-80be-d9fc-ab1e52f84ff3\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"http://fGEoxr.iosoOXpavq8tvP4HkmY\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"2007-09-30T21:25:34.424Z\"\n      },\n      {\n        \"id\": \"9b1a801d-4238-65ca-15b6-619a2e6e0599\",\n        \"title\": \"string\",\n        \"slug\": \"string\",\n        \"section\": \"string\",\n        \"summary\": \"string\",\n        \"body\": \"string\",\n        \"url\": \"http://wqWJiKuCVHHjRpEsTCCSaTB.ebFoKaGtXvKT,\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"publishedAt\": \"1962-08-09T12:10:59.215Z\"\n      }\n    ],\n    \"publishedAt\": \"2010-05-10T01:46:57.262Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9147cdbb-1b00-4080-81f6-ef531ff92c65",
+              "name": "API key missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Bundle UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd42c803-547c-4b82-a593-0cf996fe5f70",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Bundle UUID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"unauthorized\",\n    \"message\": \"Invalid or missing API key. Include Authorization Bearer alnw_... header.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://alignednews.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1efeee1a-6daa-4cb1-b4ef-c56021753371",
+    "name": "Aligned News REST Bundles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read-only REST API for the Aligned News AI intelligence platform.\n\nThe API exposes Aligned News' Stories, Signals, Reports, Bundles, the\nsection-grouped news feed, and full-text search. All endpoints require an\nAPI key passed as `Authorization: Bearer alnw_...`. API keys are issued to\nPro and Enterprise subscribers from their account page at\nhttps://alignednews.com/account.\n\nNote: this specification was reconstructed by inspecting the Aligned News\nweb application bundle and the published MCP server reference implementation\n(https://alignednews.com/mcp-server.ts). The provider does not currently\npublish a machine-readable API description.\n\n\nContact Support:\n Name: Aligned News",
+      "type": "text/plain"
+    }
+  }
+}
