@@ -26,6 +26,12 @@ modified: '2026-07-25'
 url: https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 tags:
+  - Artificial Intelligence
+  - News
+  - Intelligence
+  - MCP
+  - Signals
+tags_raw:
   - AI
   - News
   - Intelligence
@@ -44,6 +50,11 @@ apis:
     humanURL: https://alignednews.com/developers
     baseURL: https://alignednews.com/v1
     tags:
+      - Artificial Intelligence
+      - MCP
+      - Agents
+      - Tooling
+    tags_raw:
       - AI
       - MCP
       - Agents
