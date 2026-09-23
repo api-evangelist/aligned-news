@@ -1,29 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aligned News REST Bundles Search API
-  description: 'Read-only REST API for the Aligned News AI intelligence platform.
-
-
-    The API exposes Aligned News'' Stories, Signals, Reports, Bundles, the
-
-    section-grouped news feed, and full-text search. All endpoints require an
-
-    API key passed as `Authorization: Bearer alnw_...`. API keys are issued to
-
-    Pro and Enterprise subscribers from their account page at
-
-    https://alignednews.com/account.
-
-
-    Note: this specification was reconstructed by inspecting the Aligned News
-
-    web application bundle and the published MCP server reference implementation
-
-    (https://alignednews.com/mcp-server.ts). The provider does not currently
-
-    publish a machine-readable API description.
-
-    '
+  title: Aligned News REST Search API
+  description: Read-only REST API for the Aligned News AI intelligence platform.
   version: 1.0.0
   contact:
     name: Aligned News
@@ -97,33 +75,6 @@ components:
         publishedAt:
           type: string
           format: date-time
-    Story:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        title:
-          type: string
-        slug:
-          type: string
-        section:
-          type: string
-        summary:
-          type: string
-        body:
-          type: string
-          description: Full story body. Returned by single-story responses.
-        url:
-          type: string
-          format: uri
-        tags:
-          type: array
-          items:
-            type: string
-        publishedAt:
-          type: string
-          format: date-time
     Signal:
       type: object
       properties:
@@ -154,6 +105,33 @@ components:
         sourceUrl:
           type: string
           format: uri
+        publishedAt:
+          type: string
+          format: date-time
+    Story:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        slug:
+          type: string
+        section:
+          type: string
+        summary:
+          type: string
+        body:
+          type: string
+          description: Full story body. Returned by single-story responses.
+        url:
+          type: string
+          format: uri
+        tags:
+          type: array
+          items:
+            type: string
         publishedAt:
           type: string
           format: date-time
@@ -197,14 +175,14 @@ components:
               items:
                 $ref: '#/components/schemas/Report'
   responses:
-    Unauthorized:
-      description: API key missing or invalid.
+    BadRequest:
+      description: Invalid request parameters.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters.
+    Unauthorized:
+      description: API key missing or invalid.
       content:
         application/json:
           schema:

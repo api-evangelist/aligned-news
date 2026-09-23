@@ -1,29 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aligned News REST Bundles Signals API
-  description: 'Read-only REST API for the Aligned News AI intelligence platform.
-
-
-    The API exposes Aligned News'' Stories, Signals, Reports, Bundles, the
-
-    section-grouped news feed, and full-text search. All endpoints require an
-
-    API key passed as `Authorization: Bearer alnw_...`. API keys are issued to
-
-    Pro and Enterprise subscribers from their account page at
-
-    https://alignednews.com/account.
-
-
-    Note: this specification was reconstructed by inspecting the Aligned News
-
-    web application bundle and the published MCP server reference implementation
-
-    (https://alignednews.com/mcp-server.ts). The provider does not currently
-
-    publish a machine-readable API description.
-
-    '
+  title: Aligned News REST Signals API
+  description: Read-only REST API for the Aligned News AI intelligence platform.
   version: 1.0.0
   contact:
     name: Aligned News
@@ -101,7 +79,49 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    SignalId:
+      name: id
+      in: path
+      required: true
+      description: Signal UUID.
+      schema:
+        type: string
+        format: uuid
   schemas:
+    Signal:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        badge:
+          type: string
+          enum:
+          - bullish
+          - caution
+          - critical
+          - signal
+          - interview
+          - vc
+          - action
+        summary:
+          type: string
+        analysis:
+          type: string
+          description: Full editorial analysis. Returned by single-signal responses.
+        relatedStories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Story'
+        sourceUrl:
+          type: string
+          format: uri
+        publishedAt:
+          type: string
+          format: date-time
     Story:
       type: object
       properties:
@@ -136,39 +156,6 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/Signal'
-    Signal:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        title:
-          type: string
-        badge:
-          type: string
-          enum:
-          - bullish
-          - caution
-          - critical
-          - signal
-          - interview
-          - vc
-          - action
-        summary:
-          type: string
-        analysis:
-          type: string
-          description: Full editorial analysis. Returned by single-signal responses.
-        relatedStories:
-          type: array
-          items:
-            $ref: '#/components/schemas/Story'
-        sourceUrl:
-          type: string
-          format: uri
-        publishedAt:
-          type: string
-          format: date-time
     Error:
       type: object
       required:
@@ -197,24 +184,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Signal'
-  parameters:
-    SignalId:
-      name: id
-      in: path
-      required: true
-      description: Signal UUID.
-      schema:
-        type: string
-        format: uuid
   responses:
-    Unauthorized:
-      description: API key missing or invalid.
+    NotFound:
+      description: Resource not found.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found.
+    Unauthorized:
+      description: API key missing or invalid.
       content:
         application/json:
           schema:

@@ -1,29 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aligned News REST Bundles Sections API
-  description: 'Read-only REST API for the Aligned News AI intelligence platform.
-
-
-    The API exposes Aligned News'' Stories, Signals, Reports, Bundles, the
-
-    section-grouped news feed, and full-text search. All endpoints require an
-
-    API key passed as `Authorization: Bearer alnw_...`. API keys are issued to
-
-    Pro and Enterprise subscribers from their account page at
-
-    https://alignednews.com/account.
-
-
-    Note: this specification was reconstructed by inspecting the Aligned News
-
-    web application bundle and the published MCP server reference implementation
-
-    (https://alignednews.com/mcp-server.ts). The provider does not currently
-
-    publish a machine-readable API description.
-
-    '
+  title: Aligned News REST Sections API
+  description: Read-only REST API for the Aligned News AI intelligence platform.
   version: 1.0.0
   contact:
     name: Aligned News
@@ -58,24 +36,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Section:
-      type: object
-      properties:
-        slug:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-    SectionListResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Section'
     Error:
       type: object
       required:
@@ -95,6 +55,24 @@ components:
               type: string
               description: Human-readable error message.
               example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+    SectionListResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Section'
+    Section:
+      type: object
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
   responses:
     Unauthorized:
       description: API key missing or invalid.
