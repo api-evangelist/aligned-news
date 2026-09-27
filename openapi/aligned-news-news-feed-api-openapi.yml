@@ -45,23 +45,34 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    NewsFeedResponse:
+    Section:
+      type: object
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    Error:
       type: object
       required:
-      - data
+      - error
       properties:
-        data:
-          type: array
-          description: One entry per active section, each with its stories.
-          items:
-            type: object
-            properties:
-              section:
-                $ref: '#/components/schemas/Section'
-              stories:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Story'
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
     Story:
       type: object
       properties:
@@ -89,34 +100,23 @@ components:
         publishedAt:
           type: string
           format: date-time
-    Error:
+    NewsFeedResponse:
       type: object
       required:
-      - error
+      - data
       properties:
-        error:
-          type: object
-          required:
-          - code
-          - message
-          properties:
-            code:
-              type: string
-              description: Machine-readable error code.
-              example: unauthorized
-            message:
-              type: string
-              description: Human-readable error message.
-              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
-    Section:
-      type: object
-      properties:
-        slug:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
+        data:
+          type: array
+          description: One entry per active section, each with its stories.
+          items:
+            type: object
+            properties:
+              section:
+                $ref: '#/components/schemas/Section'
+              stories:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Story'
   responses:
     Unauthorized:
       description: API key missing or invalid.

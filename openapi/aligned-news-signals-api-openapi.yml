@@ -79,15 +79,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    SignalId:
-      name: id
-      in: path
-      required: true
-      description: Signal UUID.
-      schema:
-        type: string
-        format: uuid
   schemas:
     Signal:
       type: object
@@ -122,6 +113,25 @@ components:
         publishedAt:
           type: string
           format: date-time
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
     Story:
       type: object
       properties:
@@ -156,25 +166,6 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/Signal'
-    Error:
-      type: object
-      required:
-      - error
-      properties:
-        error:
-          type: object
-          required:
-          - code
-          - message
-          properties:
-            code:
-              type: string
-              description: Machine-readable error code.
-              example: unauthorized
-            message:
-              type: string
-              description: Human-readable error message.
-              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
     SignalListResponse:
       type: object
       required:
@@ -184,15 +175,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Signal'
+  parameters:
+    SignalId:
+      name: id
+      in: path
+      required: true
+      description: Signal UUID.
+      schema:
+        type: string
+        format: uuid
   responses:
-    NotFound:
-      description: Resource not found.
+    Unauthorized:
+      description: API key missing or invalid.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: API key missing or invalid.
+    NotFound:
+      description: Resource not found.
       content:
         application/json:
           schema:
