@@ -36,6 +36,15 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    Section:
+      type: object
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
     Error:
       type: object
       required:
@@ -64,15 +73,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Section'
-    Section:
-      type: object
-      properties:
-        slug:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
   responses:
     Unauthorized:
       description: API key missing or invalid.

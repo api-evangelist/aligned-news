@@ -65,16 +65,27 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    ReportId:
-      name: id
-      in: path
-      required: true
-      description: Report UUID.
-      schema:
-        type: string
-        format: uuid
   schemas:
+    Report:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        summary:
+          type: string
+        content:
+          type: string
+          description: Full report content. Returned by single-report responses.
+        tags:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
     ReportListResponse:
       type: object
       required:
@@ -103,26 +114,6 @@ components:
               type: string
               description: Human-readable error message.
               example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
-    Report:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        title:
-          type: string
-        summary:
-          type: string
-        content:
-          type: string
-          description: Full report content. Returned by single-report responses.
-        tags:
-          type: array
-          items:
-            type: string
-        publishedAt:
-          type: string
-          format: date-time
     ReportResponse:
       type: object
       required:
@@ -130,15 +121,24 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/Report'
+  parameters:
+    ReportId:
+      name: id
+      in: path
+      required: true
+      description: Report UUID.
+      schema:
+        type: string
+        format: uuid
   responses:
-    Unauthorized:
-      description: API key missing or invalid.
+    NotFound:
+      description: Resource not found.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found.
+    Unauthorized:
+      description: API key missing or invalid.
       content:
         application/json:
           schema:

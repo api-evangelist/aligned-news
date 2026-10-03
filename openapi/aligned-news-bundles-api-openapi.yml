@@ -75,23 +75,15 @@ components:
         type: string
         format: uuid
   schemas:
-    Bundle:
+    BundleListResponse:
       type: object
+      required:
+      - data
       properties:
-        id:
-          type: string
-          format: uuid
-        title:
-          type: string
-        summary:
-          type: string
-        stories:
+        data:
           type: array
           items:
-            $ref: '#/components/schemas/Story'
-        publishedAt:
-          type: string
-          format: date-time
+            $ref: '#/components/schemas/Bundle'
     Error:
       type: object
       required:
@@ -111,6 +103,30 @@ components:
               type: string
               description: Human-readable error message.
               example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+    Bundle:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        summary:
+          type: string
+        stories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Story'
+        publishedAt:
+          type: string
+          format: date-time
+    BundleResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/Bundle'
     Story:
       type: object
       properties:
@@ -138,31 +154,15 @@ components:
         publishedAt:
           type: string
           format: date-time
-    BundleListResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bundle'
-    BundleResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          $ref: '#/components/schemas/Bundle'
   responses:
-    Unauthorized:
-      description: API key missing or invalid.
+    NotFound:
+      description: Resource not found.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found.
+    Unauthorized:
+      description: API key missing or invalid.
       content:
         application/json:
           schema:

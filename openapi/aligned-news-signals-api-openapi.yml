@@ -80,6 +80,25 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
     Signal:
       type: object
       properties:
@@ -113,25 +132,22 @@ components:
         publishedAt:
           type: string
           format: date-time
-    Error:
+    SignalResponse:
       type: object
       required:
-      - error
+      - data
       properties:
-        error:
-          type: object
-          required:
-          - code
-          - message
-          properties:
-            code:
-              type: string
-              description: Machine-readable error code.
-              example: unauthorized
-            message:
-              type: string
-              description: Human-readable error message.
-              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+        data:
+          $ref: '#/components/schemas/Signal'
+    SignalListResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Signal'
     Story:
       type: object
       properties:
@@ -159,22 +175,6 @@ components:
         publishedAt:
           type: string
           format: date-time
-    SignalResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          $ref: '#/components/schemas/Signal'
-    SignalListResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Signal'
   parameters:
     SignalId:
       name: id
@@ -185,14 +185,14 @@ components:
         type: string
         format: uuid
   responses:
-    Unauthorized:
-      description: API key missing or invalid.
+    NotFound:
+      description: Resource not found.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found.
+    Unauthorized:
+      description: API key missing or invalid.
       content:
         application/json:
           schema:
