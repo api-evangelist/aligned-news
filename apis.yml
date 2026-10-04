@@ -40,13 +40,11 @@ specificationVersion: '0.23'
 tags:
 - Artificial Intelligence
 - News
-- Intelligence
 - MCP
 - Signals
 tags_raw:
 - AI
 - News
-- Intelligence
 - MCP
 - Signals
 url-source: https://alignednews.com/
@@ -298,3 +296,5 @@ common:
   updated: '2026-05-06'
 - url: https://alignednews.com/feed
   type: Blog
+x-tags-removed:
+- Intelligence
