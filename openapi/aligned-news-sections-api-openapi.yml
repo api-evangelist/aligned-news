@@ -45,6 +45,15 @@ components:
           type: string
         description:
           type: string
+    SectionListResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Section'
     Error:
       type: object
       required:
@@ -64,15 +73,6 @@ components:
               type: string
               description: Human-readable error message.
               example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
-    SectionListResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Section'
   responses:
     Unauthorized:
       description: API key missing or invalid.

@@ -80,25 +80,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Error:
-      type: object
-      required:
-      - error
-      properties:
-        error:
-          type: object
-          required:
-          - code
-          - message
-          properties:
-            code:
-              type: string
-              description: Machine-readable error code.
-              example: unauthorized
-            message:
-              type: string
-              description: Human-readable error message.
-              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
     Signal:
       type: object
       properties:
@@ -132,22 +113,6 @@ components:
         publishedAt:
           type: string
           format: date-time
-    SignalResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          $ref: '#/components/schemas/Signal'
-    SignalListResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Signal'
     Story:
       type: object
       properties:
@@ -175,6 +140,54 @@ components:
         publishedAt:
           type: string
           format: date-time
+    SignalResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/Signal'
+    SignalListResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Signal'
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+  responses:
+    Unauthorized:
+      description: API key missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
     SignalId:
       name: id
@@ -184,19 +197,6 @@ components:
       schema:
         type: string
         format: uuid
-  responses:
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: API key missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http

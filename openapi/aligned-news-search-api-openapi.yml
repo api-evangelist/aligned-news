@@ -54,66 +54,20 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    BadRequest:
+      description: Invalid request parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: API key missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Report:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        title:
-          type: string
-        summary:
-          type: string
-        content:
-          type: string
-          description: Full report content. Returned by single-report responses.
-        tags:
-          type: array
-          items:
-            type: string
-        publishedAt:
-          type: string
-          format: date-time
-    SearchResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: object
-          properties:
-            stories:
-              type: array
-              items:
-                $ref: '#/components/schemas/Story'
-            signals:
-              type: array
-              items:
-                $ref: '#/components/schemas/Signal'
-            reports:
-              type: array
-              items:
-                $ref: '#/components/schemas/Report'
-    Error:
-      type: object
-      required:
-      - error
-      properties:
-        error:
-          type: object
-          required:
-          - code
-          - message
-          properties:
-            code:
-              type: string
-              description: Machine-readable error code.
-              example: unauthorized
-            message:
-              type: string
-              description: Human-readable error message.
-              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
     Signal:
       type: object
       properties:
@@ -174,19 +128,65 @@ components:
         publishedAt:
           type: string
           format: date-time
-  responses:
-    Unauthorized:
-      description: API key missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request parameters.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    SearchResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: object
+          properties:
+            stories:
+              type: array
+              items:
+                $ref: '#/components/schemas/Story'
+            signals:
+              type: array
+              items:
+                $ref: '#/components/schemas/Signal'
+            reports:
+              type: array
+              items:
+                $ref: '#/components/schemas/Report'
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+    Report:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        summary:
+          type: string
+        content:
+          type: string
+          description: Full report content. Returned by single-report responses.
+        tags:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
   securitySchemes:
     bearerAuth:
       type: http

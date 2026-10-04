@@ -65,62 +65,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  schemas:
-    Report:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        title:
-          type: string
-        summary:
-          type: string
-        content:
-          type: string
-          description: Full report content. Returned by single-report responses.
-        tags:
-          type: array
-          items:
-            type: string
-        publishedAt:
-          type: string
-          format: date-time
-    ReportListResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Report'
-    Error:
-      type: object
-      required:
-      - error
-      properties:
-        error:
-          type: object
-          required:
-          - code
-          - message
-          properties:
-            code:
-              type: string
-              description: Machine-readable error code.
-              example: unauthorized
-            message:
-              type: string
-              description: Human-readable error message.
-              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
-    ReportResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          $ref: '#/components/schemas/Report'
   parameters:
     ReportId:
       name: id
@@ -143,6 +87,62 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+    Report:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        summary:
+          type: string
+        content:
+          type: string
+          description: Full report content. Returned by single-report responses.
+        tags:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+          format: date-time
+    ReportResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/Report'
+    ReportListResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
   securitySchemes:
     bearerAuth:
       type: http

@@ -44,52 +44,14 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    Unauthorized:
+      description: API key missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      required:
-      - error
-      properties:
-        error:
-          type: object
-          required:
-          - code
-          - message
-          properties:
-            code:
-              type: string
-              description: Machine-readable error code.
-              example: unauthorized
-            message:
-              type: string
-              description: Human-readable error message.
-              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
-    Section:
-      type: object
-      properties:
-        slug:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-    NewsFeedResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          description: One entry per active section, each with its stories.
-          items:
-            type: object
-            properties:
-              section:
-                $ref: '#/components/schemas/Section'
-              stories:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Story'
     Story:
       type: object
       properties:
@@ -117,13 +79,51 @@ components:
         publishedAt:
           type: string
           format: date-time
-  responses:
-    Unauthorized:
-      description: API key missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    Section:
+      type: object
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+    NewsFeedResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          description: One entry per active section, each with its stories.
+          items:
+            type: object
+            properties:
+              section:
+                $ref: '#/components/schemas/Section'
+              stories:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Story'
   securitySchemes:
     bearerAuth:
       type: http
