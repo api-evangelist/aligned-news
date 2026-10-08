@@ -235,6 +235,12 @@ maintainers:
 - FN: Aligned News
   url: https://alignednews.com/
 common:
+- type: Plans
+  url: plans/aligned-news-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/aligned-news-rate-limits.yml
+- type: FinOps
+  url: finops/aligned-news-finops.yml
 - type: AgenticAccess
   url: agentic-access/aligned-news-agentic-access.yml
 - type: DomainSecurity
