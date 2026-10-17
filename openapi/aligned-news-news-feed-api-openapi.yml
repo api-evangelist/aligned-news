@@ -52,6 +52,34 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Machine-readable error code.
+              example: unauthorized
+            message:
+              type: string
+              description: Human-readable error message.
+              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
+    Section:
+      type: object
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
     Story:
       type: object
       properties:
@@ -79,34 +107,6 @@ components:
         publishedAt:
           type: string
           format: date-time
-    Section:
-      type: object
-      properties:
-        slug:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-    Error:
-      type: object
-      required:
-      - error
-      properties:
-        error:
-          type: object
-          required:
-          - code
-          - message
-          properties:
-            code:
-              type: string
-              description: Machine-readable error code.
-              example: unauthorized
-            message:
-              type: string
-              description: Human-readable error message.
-              example: Invalid or missing API key. Include Authorization Bearer alnw_... header.
     NewsFeedResponse:
       type: object
       required:
