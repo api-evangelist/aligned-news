@@ -1,4 +1,4 @@
-# Aligned News (aligned-news)
+# Aligned News
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,116 +66,185 @@
 
 Aligned News is an AI-native intelligence and news platform that synthesizes AI-powered briefings from 63 curated X lists tracking 100,000+ accounts in AI, tech, and science, and publishes Stories, Signals, Reports, and Bundles via web, REST API, and a downloadable MCP server for AI tools like Claude, Cursor, and Windsurf.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · News · MCP · Signals
 
-## Scope
+## Aligned News on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Aligned News is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/aligned-news/](https://apis.io/providers/aligned-news/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (8)
 
-- AI
-- News
-- Intelligence
-- MCP
-- Signals
+- [Aligned News MCP Server](https://apis.io/apis/aligned-news/aligned-news-mcp-server/) — Reference Model Context Protocol server distributed as a single TypeScript file (mcp-server.ts) that proxies the Aligned News REST API to MCP-compatible AI…
+- [Aligned News Bundles API](https://apis.io/apis/aligned-news/aligned-news-bundles-api/) — Curated groupings of related stories around themes.
+- [Aligned News Feed API](https://apis.io/apis/aligned-news/aligned-news-news-feed-api/) — All current stories grouped by section.
+- [Aligned News Reports API](https://apis.io/apis/aligned-news/aligned-news-reports-api/) — Trend deep-dives and longer-form analysis.
+- [Aligned News Search API](https://apis.io/apis/aligned-news/aligned-news-search-api/) — Full-text search across stories, signals, and reports.
+- [Aligned News Sections API](https://apis.io/apis/aligned-news/aligned-news-sections-api/) — Topical sections used to organize stories.
+- [Aligned News Signals API](https://apis.io/apis/aligned-news/aligned-news-signals-api/) — Early pattern detections with editorial badges.
+- [Aligned News Stories API](https://apis.io/apis/aligned-news/aligned-news-stories-api/) — AI news stories curated and synthesized from monitored accounts.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-06
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Aligned News Agentic Access](https://apis.io/agentic-access/aligned-news/aligned-news-agentic-access/)
 
-- AI
-- News
-- Intelligence
+#### JSON Schema (5)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://alignednews.com/how-it-works)
-- [Pricing](https://alignednews.com/pricing)
-- [Sign Up](https://alignednews.com/getting-started)
-- [Postman Collection](collections/aligned-news.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/aligned-news.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Bundle](https://apis.io/schemas/aligned-news/aligned-news-bundle/)
+- [Report](https://apis.io/schemas/aligned-news/aligned-news-report/)
+- [Section](https://apis.io/schemas/aligned-news/aligned-news-section/)
+- [Signal](https://apis.io/schemas/aligned-news/aligned-news-signal/)
+- [Story](https://apis.io/schemas/aligned-news/aligned-news-story/)
 
-### Aligned News REST API
+#### JSON Structure (5)
 
-Read-only REST API for Aligned News content. Lets developers and AI agents fetch Stories, Signals, Reports, Bundles, the section-grouped news feed, and run full-text search across all content. All endpoints require an API key passed as Authorization Bearer alnw_... and are reserved for Pro subscribers.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://alignednews.com/developers](https://alignednews.com/developers)
-- **Base URL:** `https://alignednews.com/v1`
+- [Aligned News Bundle Structure](https://apis.io/json-structure/aligned-news/aligned-news-bundle-structure/)
+- [Aligned News Report Structure](https://apis.io/json-structure/aligned-news/aligned-news-report-structure/)
+- [Aligned News Section Structure](https://apis.io/json-structure/aligned-news/aligned-news-section-structure/)
+- [Aligned News Signal Structure](https://apis.io/json-structure/aligned-news/aligned-news-signal-structure/)
+- [Aligned News Story Structure](https://apis.io/json-structure/aligned-news/aligned-news-story-structure/)
 
-#### Tags
+#### JSON-LD (1)
 
-- AI
-- News
-- Intelligence
-- REST
-- Signals
-- Search
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Aligned News Context](https://apis.io/jsonld/aligned-news/aligned-news-context/)
 
-- [Documentation](https://alignednews.com/developers)
-- [Authentication](https://alignednews.com/account)
-- [Pricing](https://alignednews.com/pricing)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/openapi/aligned-news-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Plans](https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/plans/aligned-news-plans-pricing.yml)
-- [Rate Limits](https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/rate-limits/aligned-news-rate-limits.yml)
-- [Fin Ops](https://raw.githubusercontent.com/api-evangelist/aligned-news/refs/heads/main/finops/aligned-news-finops.yml)
-- [Postman Collection](collections/aligned-news.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/aligned-news.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Vocabulary (1)
 
-### Aligned News MCP Server
+The provider's domain terms, defined.
 
-Reference Model Context Protocol server distributed as a single TypeScript file (mcp-server.ts) that proxies the Aligned News REST API to MCP-compatible AI tools like Claude Code, Claude Desktop, Cursor, and Windsurf. Exposes search_news, get_stories, get_story, get_signals, get_signal, get_reports, get_report, and get_sections tools, plus an aligned://news-feed resource. Authenticates with a user-provided ALIGNED_API_KEY (Bearer alnw_...).
+- [Aligned News Vocabulary](https://apis.io/vocabularies/aligned-news/aligned-news-vocabulary/)
 
-- **Human URL:** [https://alignednews.com/developers](https://alignednews.com/developers)
-- **Base URL:** `https://alignednews.com/v1`
+#### Examples (11)
 
-#### Tags
+Example requests and responses.
 
-- AI
-- MCP
-- Agents
-- Tooling
+- [Aligned News Getbundle Example](https://apis.io/examples/aligned-news/aligned-news-getBundle-example/)
+- [Aligned News Getnewsfeed Example](https://apis.io/examples/aligned-news/aligned-news-getNewsFeed-example/)
+- [Aligned News Getreport Example](https://apis.io/examples/aligned-news/aligned-news-getReport-example/)
+- [Aligned News Getsignal Example](https://apis.io/examples/aligned-news/aligned-news-getSignal-example/)
+- [Aligned News Getstory Example](https://apis.io/examples/aligned-news/aligned-news-getStory-example/)
+- [Aligned News Listbundles Example](https://apis.io/examples/aligned-news/aligned-news-listBundles-example/)
+- [Aligned News Listreports Example](https://apis.io/examples/aligned-news/aligned-news-listReports-example/)
+- [Aligned News Listsections Example](https://apis.io/examples/aligned-news/aligned-news-listSections-example/)
+- [Aligned News Listsignals Example](https://apis.io/examples/aligned-news/aligned-news-listSignals-example/)
+- [Aligned News Liststories Example](https://apis.io/examples/aligned-news/aligned-news-listStories-example/)
+- [Aligned News Searchcontent Example](https://apis.io/examples/aligned-news/aligned-news-searchContent-example/)
 
-#### Properties
+#### Collections (8)
 
-- [Documentation](https://alignednews.com/developers)
-- [Source  Code](https://alignednews.com/mcp-server.ts)
-- [Authentication](https://alignednews.com/account)
-- [Postman Collection](collections/aligned-news.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/aligned-news.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Aligned News REST API](https://apis.io/collections/aligned-news/open-aligned-news/)
+- [Aligned News REST Bundles API](https://apis.io/collections/aligned-news/open-aligned-news-bundles-api/)
+- [Aligned News REST Bundles News Feed API](https://apis.io/collections/aligned-news/open-aligned-news-news-feed-api/)
+- [Aligned News REST Bundles Reports API](https://apis.io/collections/aligned-news/open-aligned-news-reports-api/)
+- [Aligned News REST Bundles Search API](https://apis.io/collections/aligned-news/open-aligned-news-search-api/)
+- [Aligned News REST Bundles Sections API](https://apis.io/collections/aligned-news/open-aligned-news-sections-api/)
+- [Aligned News REST Bundles Signals API](https://apis.io/collections/aligned-news/open-aligned-news-signals-api/)
+- [Aligned News REST Bundles Stories API](https://apis.io/collections/aligned-news/open-aligned-news-stories-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Aligned News — jsonschema rules](https://apis.io/rules/aligned-news/aligned-news-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Aligned News Authentication](https://apis.io/security/aligned-news/aligned-news-authentication/)
+- [Aligned News Domain Security](https://apis.io/security/aligned-news/aligned-news-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Aligned News Plans Pricing](https://apis.io/plans/aligned-news/aligned-news-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Aligned News Rate Limits](https://apis.io/rate-limits/aligned-news/aligned-news-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Aligned News Finops](https://apis.io/finops/aligned-news/aligned-news-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://alignednews.com/)
-- [How  It  Works](https://alignednews.com/how-it-works)
-- [Getting Started](https://alignednews.com/getting-started)
+- [Getting started](https://alignednews.com/getting-started)
 - [Pricing](https://alignednews.com/pricing)
-- [Developers](https://alignednews.com/developers)
-- [Sign Up](https://alignednews.com/account)
-- [Sitemap](https://alignednews.com/sitemap.xml)
-- [Robots  T X T](https://alignednews.com/robots.txt)
-- [Research](https://alignednews.com/research)
-- [Signals](https://alignednews.com/signals)
-- [Reports](https://alignednews.com/reports)
-- [Bundles](https://alignednews.com/bundles)
-- [A I](https://alignednews.com/ai)
-- [M C P  Server](https://alignednews.com/mcp-server.ts)
-- [Git Hub  Org](https://github.com/Aligned-news)
-- [Features](undefined)
+- [Blog](https://alignednews.com/feed)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**FN:** Aligned News
-**URL:** https://alignednews.com/
+**Kin Score 41.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 57.7 |
+| Contract governance | 9.8 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 55.3 |
+
+**Agent readiness 25.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 15.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aligned-news/](https://apis.io/providers/aligned-news/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Aligned News: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/aligned-news/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
